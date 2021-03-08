@@ -28,8 +28,8 @@ export default function Home( {allPostsData}: {
           {allPostsData.map(({ id, title, created_at, updated_at, thumbnail, tag }) => (
             <Link href={`/posts/${id}`}>
             <div className={index_style.post_list}>
-            <div className="max-w-lg rounded overflow-hidden shadow-lg my-2">
-            <Image className="w-full" src={thumbnail}  height={400} width={600}/>
+            <div className="max-w-lg rounded overflow-hidden shadow-md my-2">
+            <Image className="w-full" src={thumbnail}  height={300} width={600}/>
             <div className="px-6 py-4">
             <div className={index_style.title}>
             <a><div className="font-bold text-xl mb-2"><h2>{title}</h2></div></a>

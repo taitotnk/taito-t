@@ -4,7 +4,7 @@ import Link from 'next/link'
 import React from 'react'
 import styles from '../styles/layout.module.css'
 
-const siteTitle = 'taito-blog'
+const siteTitle = 'taito.com'
 export default function Layout({children, home}: {
     children: React.ReactNode
     home?: boolean
