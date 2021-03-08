@@ -1,8 +1,8 @@
 ---
-title: 'Two Forms of Pre-rendering'
+title: 'テストしてみた'
 created_at: '2020-01-01'
 updated_at: '2020-01-03'
-thumbnail: 'img/profile.jpg'
+thumbnail: '/images/profile.jpg'
 tag: 'blog'
 ---
 

@@ -4,9 +4,9 @@ import matter from 'gray-matter'
 import remark from 'remark'
 import html from 'remark-html'
 
-const postsDirectory = path.join(process.cwd(), 'posts')
+const postsDirectory = path.join(process.cwd(), 'src/posts')
 
-type Meta = {
+export type Meta = {
   title: string;
   created_at: string;
   updated_at: string;
