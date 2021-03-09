@@ -54,7 +54,7 @@ export default function Layout({children, home}: {
                 </Link>
             </div>
             <div className={styles.rights}>
-                © 2021 Copyright Taito All Rights Reserved.
+                © 2021 Copyright taito-t.com All Rights Reserved.
             </div>
             </footer>
         </div>
