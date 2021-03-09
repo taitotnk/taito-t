@@ -1,6 +1,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    background-color: aliceblue;
+}
+
 a {
     color: black;
     text-decoration: none;
