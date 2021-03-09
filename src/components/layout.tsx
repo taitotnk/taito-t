@@ -22,17 +22,17 @@ export default function Layout({children, home}: {
             <div className={styles.header_cont}>
             <h3 className={styles.home_link}>
                 <Link href="/" >
-                    <a><h3>{siteTitle}</h3></a>
+                    <a><h2>{siteTitle}</h2></a>
                 </Link>
             </h3>
             <h3 className={styles.home_link}>
                 <Link href="/about" >
-                    <a><h3>About me</h3></a>
+                    <a><h2>About me</h2></a>
                 </Link>
             </h3>
             <h3 className={styles.home_link}>
                 <Link href="/contact" >
-                    <a><h3>Contact</h3></a>
+                    <a><h2>Contact</h2></a>
                 </Link>
             </h3>
             </div>
