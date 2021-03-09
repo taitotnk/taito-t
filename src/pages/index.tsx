@@ -31,6 +31,7 @@ export default function Home( {allPostsData}: {
         <title>{siteTitle}</title>
         <meta name="og:title" content={siteTitle} />
         <meta property="og:image" content="/images/taitologo.jpg" />
+        <meta name="twitter:image" content="/images/taitologo.jpg" />
       </Head>
           <h1 className={index_style.name}>I am Taito</h1>
           <div className={index_style.icon_cont}>
