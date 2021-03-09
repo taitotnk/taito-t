@@ -1,6 +1,9 @@
 import {getAllPostIds, getPostData} from '../../lib/posts'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Layout from '../../components/layout'
+import Head from 'next/head'
+import postStyles from '../../styles/post-styles.module.css'
+import Image from 'next/image'
 
 export default function Post({postData}:{
     postData: {
@@ -8,18 +11,24 @@ export default function Post({postData}:{
         created_at: string;
         updated_at: string;
         tag: string;
+        thumbnail: string
         contentHtml: string
     }
 }) {
     return (
         <Layout>
-        <article>
-        <h1>{postData.tag}</h1>
-        <h1>{postData.title}</h1>
-        <div>
-          {postData.created_at}
+            <Head>
+                <title>{postData.title}</title>
+                <meta name="og:title" content={postData.title} />
+                <meta property="og:image" content={postData.thumbnail} />
+            </Head>
+        <div className={postStyles.center}>
+        <Image src={postData.thumbnail} height={300} width={600}/>
         </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <article>
+        <h1 className={postStyles.center}>{postData.title}</h1>
+        <small className={postStyles.center}>投稿日:{postData.created_at} 更新日:{postData.updated_at}</small>
+        <div className={postStyles.article} dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </article>
       </Layout>
     )

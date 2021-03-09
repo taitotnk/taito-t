@@ -4,7 +4,7 @@ import Link from 'next/link'
 import React from 'react'
 import styles from '../styles/layout.module.css'
 
-const siteTitle = 'taito.com'
+export const siteTitle = 'taito-t.com'
 export default function Layout({children, home}: {
     children: React.ReactNode
     home?: boolean
@@ -12,28 +12,27 @@ export default function Layout({children, home}: {
     return(
         <div>
             <Head>
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="icon" href="/images/taitologo.jpg" />
+            <meta name="description" content="Taitoの技術メモ＆ポートフォリオサイトです" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:site" content="@taito_1211" />
             </Head>
             <header className={styles.header}>
             <div className={styles.header_cont}>
             <h3 className={styles.home_link}>
                 <Link href="/" >
-                    <a><h2>{siteTitle}</h2></a>
-                </Link>
-            </h3>
-            <h3 className={styles.home_link}>
-                <Link href="/" >
-                    <a><h2>Home</h2></a>
+                    <a><h3>{siteTitle}</h3></a>
                 </Link>
             </h3>
             <h3 className={styles.home_link}>
                 <Link href="/about" >
-                    <a><h2>About me</h2></a>
+                    <a><h3>About me</h3></a>
                 </Link>
             </h3>
             <h3 className={styles.home_link}>
                 <Link href="/contact" >
-                    <a><h2>Contact</h2></a>
+                    <a><h3>Contact</h3></a>
                 </Link>
             </h3>
             </div>
@@ -48,6 +47,16 @@ export default function Layout({children, home}: {
                 }
             </header>
             <main>{children}</main>
+            <footer>
+            <div className={styles.policy}>
+                <Link href="/policy" >
+                    <a><b>プライバシーポリシー</b></a>
+                </Link>
+            </div>
+            <div className={styles.rights}>
+                © 2021 Copyright Taito All Rights Reserved.
+            </div>
+            </footer>
         </div>
     )
 }

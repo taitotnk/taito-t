@@ -5,11 +5,13 @@ import Link from 'next/link'
 import Layout from '../components/layout'
 import Image from 'next/image'
 import index_style from '../styles/index.module.css'
+import {siteTitle} from '../components/layout'
 
 
 export default function Home( {allPostsData}: {
   allPostsData : {
     id: string
+    countFile: number
     title: string;
     created_at: string;
     updated_at: string;
@@ -17,15 +19,26 @@ export default function Home( {allPostsData}: {
     tag: string;
   }[]
 }) {
+
+  // postの投稿数取得
+  let count = 0
+  allPostsData.map(({countFile}) => count = countFile)
+
+
   return (
     <Layout home>
+      <Head>
+        <title>{siteTitle}</title>
+        <meta name="og:title" content={siteTitle} />
+        <meta property="og:image" content="/images/taitologo.jpg" />
+      </Head>
           <h1 className={index_style.name}>I am Taito</h1>
           <div className={index_style.icon_cont}>
           <a href="https://github.com/Taito-Code" target="_blank"><Image className={index_style.icon} src='/github-icon.png' height={70} width={70}/></a>
           <a href="https://twitter.com/taito_1211" target="_blank"><Image className={index_style.icon} src='/twitter-icon.png' height={70} width={70}/></a>
           <a href="https://www.instagram.com/taito_tanaka" target="_blank"><Image className={index_style.icon} src='/instagram-icon.png' height={70} width={70}/></a>
           </div>
-          {allPostsData.map(({ id, title, created_at, updated_at, thumbnail, tag }) => (
+          {allPostsData.map(({ id, title, created_at, updated_at ,thumbnail, tag }) => (
             <Link href={`/posts/${id}`}>
             <div className={index_style.post_list}>
             <div className="max-w-lg rounded overflow-hidden shadow-md my-2">
@@ -46,8 +59,6 @@ export default function Home( {allPostsData}: {
     </Layout>
   )
 }
-
-
 
 export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData()

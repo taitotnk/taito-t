@@ -9,3 +9,25 @@ a {
 a:hover {
     color: red;
 }
+
+/* PCのときだけ中央揃え */
+@media (min-width: 1000px){
+article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 25% 0 25%;
+    font-size: larger;
+}
+}
+
+/* コードの文字フォント */
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+code{
+    font-family: 'Source Code Pro', monospace;
+  }
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+h1 {
+    font-family: 'Roboto', sans-serif;
+}

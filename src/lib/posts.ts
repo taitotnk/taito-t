@@ -3,6 +3,9 @@ import path from 'path'
 import matter from 'gray-matter'
 import remark from 'remark'
 import html from 'remark-html'
+import hljs from 'remark-highlight.js'
+import slug from 'remark-slug'
+import toc from 'remark-toc'
 
 const postsDirectory = path.join(process.cwd(), 'src/posts')
 
@@ -22,9 +25,10 @@ export function getSortedPostsData() {
     const fileContents = fs.readFileSync(fullPath, 'utf-8')
 
     const metadata = matter(fileContents)
-
+    const countFile: number = fileNames.length
     return {
       id,
+      countFile,
       ...(metadata.data as Meta)
     }
   })
@@ -56,6 +60,9 @@ export async function getPostData(id: string) {
   const metadata = matter(fileContents)
 
   const postContent = await remark()
+  .use(slug)
+  .use(toc, { heading: '目次', maxDepth: 2 })
+  .use(hljs)
   .use(html)
   .process(metadata.content)
   const contentHtml = postContent.toString()
