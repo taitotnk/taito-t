@@ -41,18 +41,18 @@ export default function Home( {allPostsData}: {
           </div>
           {allPostsData.map(({ id, title, created_at, thumbnail, tag }) => (
             <div className={index_style.post_list}>
-            <div className="max-w-lg rounded overflow-hidden shadow-md my-2">
+            <div className="max-w-lg rounded overflow-hidden shadow-md my-2" key={thumbnail} >
             <Image className="w-full" src={thumbnail}  height={300} width={600} alt="thumbnail"/>
             <div className="px-6 py-4">
             <div className={index_style.title} key={id} >
             <Link href={`/posts/${id}`}>
-            <a><div className="font-bold text-xl mb-2"><h2>{title}</h2></div></a>
+            <a><div className="font-bold text-xl mb-2" key={title} ><h2>{title}</h2></div></a>
             </Link>
             </div>
             </div>
             <div className="px-0 py-0">
-            <div className={index_style.tag}><span className="inline-block bg-grey-lighter rounded-full px-0 py-0 text-sm font-semibold text-grey-darker mr-0"><h1>#{tag}</h1></span></div>
-            <h2 className={index_style.date}>{created_at}</h2>
+            <div className={index_style.tag} key={tag} ><span className="inline-block bg-grey-lighter rounded-full px-0 py-0 text-sm font-semibold text-grey-darker mr-0"><h1>#{tag}</h1></span></div>
+            <h2 className={index_style.date} key={created_at}>{created_at}</h2>
             </div>
             </div>
             </div>
