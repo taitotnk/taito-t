@@ -23,7 +23,7 @@ export default function Post({postData}:{
                 <meta property="og:image" content={postData.thumbnail} />
             </Head>
         <div className={postStyles.center}>
-        <Image src={postData.thumbnail} height={300} width={600}/>
+        <Image src={postData.thumbnail} height={300} width={600} alt="thumbnail" />
         </div>
         <article>
         <h1 className={postStyles.center}>{postData.title}</h1>

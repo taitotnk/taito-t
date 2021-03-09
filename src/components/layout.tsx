@@ -38,7 +38,7 @@ export default function Layout({children, home}: {
             </div>
                 {home ?(
                 <>
-                <Image  src="/images/profile.jpg" className={styles.profile_image} height={200} width={200}/>
+                <Image  src="/images/profile.jpg" className={styles.profile_image} height={200} width={200} alt="profile-img" />
                 </>
                 ) : (
                 <>
