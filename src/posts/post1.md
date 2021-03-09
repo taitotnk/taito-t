@@ -6,10 +6,16 @@ thumbnail: '/images/taitologo.jpg'
 tag: 'Django'
 ---
 
-# 初めまして！
-Taitoです。(自己紹介についてはAboutメニューを参照してください。)
+# 初めまして
+Taitoです。
+
 今回はPythonのWebアプリケーションフレームワーク「Django」を利用してブログアプリを作成しました。
 暇なときに技術系の記事や、趣味などの日常系の記事を投稿するのでよかったら見に来てください！
+
+このサイトは**2021年3月9日**にこちらに移行しましたので
+見たい方はこちらのリンクから↓
+
+[https://taito-blog.herokuapp.com/](https://taito-blog.herokuapp.com/)
 
 ***
 
