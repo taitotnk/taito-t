@@ -7,17 +7,33 @@ import Link from "next/link"
 import index_style from "../../styles/index.module.css"
 import Pager from "../../components/pager"
 
-const COUNT_PER_PAGE = 5
+const COUNT_PER_PAGE: number = 5
 
-export default function Archive(props) {
+type PostsData = {
+    id: string;
+    title: string;
+    created_at: string;
+    updated_at: string;
+    thumbnail: string;
+    tag: string;
+  }[]
+
+type props = {
+    postData: PostsData;
+    page: number;
+    total: number;
+    perPage: number;
+}
+
+export default function Archive(props: props) {
     const {postData, page, total, perPage} = props
     return (
         <Layout>
             <Head>
-                <title>Archive</title>
+                <title>Archive{page}</title>
             </Head>
             {postData.map(({ id, title, created_at, thumbnail, tag }) => (
-                 <div className={index_style.post_list}>
+            <div className={index_style.post_list}>
             <div className="max-w-lg rounded overflow-hidden shadow-md my-2" >
             <Image className="w-full" src={thumbnail}  height={300} width={600} alt="thumbnail" key={thumbnail} />
             <div className="px-6 py-4">
@@ -33,16 +49,15 @@ export default function Archive(props) {
             </div>
             </div>
             </div>
-          ))}
-           <Pager page={page} total={total} perPage={perPage} href="/archive/[page]" asCallback={(page) => `/archive/${page}`}/>
-
+            ))}
+            <Pager page={page} total={total} perPage={perPage} href="/archive/[page]" asCallback={(page: number) => `/archive/${page}`}/>
         </Layout>
     )
 
 }
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
-    const postData = await getSortedPostsData()
+    const postData = getSortedPostsData()
     const page = parseInt(params.page as string, 10)
     const end = COUNT_PER_PAGE * page
     const start = end - COUNT_PER_PAGE
@@ -70,6 +85,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
     }
 }
 
-function range(stop) {
+function range(stop: number) {
     return Array.from({ length: stop }, (_, i) => i + 1)
-  }
+}

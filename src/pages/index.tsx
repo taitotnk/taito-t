@@ -7,11 +7,9 @@ import Image from 'next/image'
 import index_style from '../styles/index.module.css'
 import {siteTitle} from '../components/layout'
 
-
 export default function Home( {allPostsData}: {
   allPostsData : {
     id: string
-    countFile: number
     title: string;
     created_at: string;
     updated_at: string;
@@ -19,11 +17,6 @@ export default function Home( {allPostsData}: {
     tag: string;
   }[]
 }) {
-
-  // postの投稿数取得
-  let count = 0
-  allPostsData.map(({countFile}) => count = countFile)
-
 
   return (
     <Layout home>
@@ -57,7 +50,9 @@ export default function Home( {allPostsData}: {
             </div>
             </div>
           ))}
-           <Link href="/archive/[page]" as="/archive/1"><a>アーカイブ</a></Link>
+          <div className={index_style.pager}>
+           <Link href="/archive/[page]" as="/archive/2"><a className={index_style.next}>Next →</a></Link>
+          </div>
     </Layout>
   )
 }

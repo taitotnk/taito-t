@@ -1,0 +1,13 @@
+.pager {
+    text-align: center;
+}
+
+.prev {
+    font-size: x-large;
+    margin-right: 20%;
+}
+
+.next {
+    font-size: x-large;
+    margin-left: 20%;
+}

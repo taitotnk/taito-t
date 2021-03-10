@@ -1,6 +1,6 @@
 ---
 title: 'Next.jsとTypeScriptでポートフォリオ作り変えた'
-created_at: '2020-03-09'
+created_at: '2020-03-02'
 updated_at: '2020-03-09'
 thumbnail: '/images/next.jpg'
 tag: 'TypeScript'
