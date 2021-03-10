@@ -47,7 +47,7 @@ export default function Layout({children, home}: {
                 }
             </header>
             <main>{children}</main>
-            <footer>
+            <footer className={styles.footer}>
             <div className={styles.policy}>
                 <Link href="/policy" >
                     <a><b>プライバシーポリシー</b></a>
