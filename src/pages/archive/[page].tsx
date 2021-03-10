@@ -7,7 +7,7 @@ import Link from "next/link"
 import index_style from "../../styles/index.module.css"
 import Pager from "../../components/pager"
 
-const COUNT_PER_PAGE: number = 5
+const COUNT_PER_PAGE: number = 2
 
 type PostsData = {
     id: string;
