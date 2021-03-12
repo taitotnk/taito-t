@@ -1,0 +1,10 @@
+@media (min-width: 1000px){
+.wrap {
+    margin: 0 25% 0 25%;
+}
+}
+
+.head {
+    text-decoration:underline;
+    text-decoration-color: red;
+}
