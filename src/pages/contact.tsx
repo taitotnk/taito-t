@@ -27,28 +27,24 @@ export default function Contact(){
                 <meta property="og:image" content="/images/taitologo.jpg" />
             </Head>
             <div className={poststyles.center}>
-            <h2>お問い合わせ</h2>
-            {errorMessage && <p>{errorMessage}</p>}
-            <form method='post' onSubmit={handleSubmit}>
-                <div className='field'>
-                <label>お名前</label>
-                <div>
-                    <input type='text' placeholder='お名前' name='name' onChange={handleChange} required />
+                <h2>お問い合わせ</h2>
+                {errorMessage && <p>{errorMessage}</p>}
+                <form method='post' onSubmit={handleSubmit}>
+                <div className="mb-6">
+                        <label htmlFor="name" className="block mb-2 text-sm text-gray-600 dark:text-gray-400">氏名</label>
+                        <input type="text" name="name" id="name" placeholder="例：山田 太郎" onChange={handleChange} required className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
                 </div>
+                <div className="mb-6">
+                        <label htmlFor="name" className="block mb-2 text-sm text-gray-600 dark:text-gray-400">メールアドレス</label>
+                        <input type="email" name="email" id="email" placeholder="メールアドレス" onChange={handleChange} required className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
                 </div>
-                <div>
-                <label>メールアドレス</label>
-                <div>
-                    <input type='email' placeholder='メールアドレス' name='email' onChange={handleChange} required />
+                <div className="mb-6">
+                        <label htmlFor="message" className="block mb-2 text-sm text-gray-600 dark:text-gray-400">お問い合わせ内容</label>
+                        <textarea name="message" id="message" placeholder="Your Message" onChange={handleChange} className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" required></textarea>
                 </div>
+                <div className="mb-6">
+                    <button type="submit" className="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none">送信</button>
                 </div>
-                <div>
-                <label>お問い合わせ内容</label>
-                <div>
-                    <textarea placeholder='Your Message' name='message' onChange={handleChange} required />
-                </div>
-                </div>
-                <button type='submit'>お問い合わせをする</button>
             </form>
             </div>
         </Layout>

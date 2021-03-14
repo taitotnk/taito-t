@@ -13,7 +13,7 @@ export const useSendContactForm = (): [string, (postData: ContactParams) => void
     const postParams = {
       ...postData,
       subject: SUBJECT_TITLE,
-      replyTo: '@', // 送信メールのデフォルト返信先を問い合わせ元のメールアドレスにする
+      replyTo: '@', 
       accessKey: ACCESS_KEY,
     };
     const response = await fetch(STATIC_FORMS_URL, {
