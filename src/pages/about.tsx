@@ -32,15 +32,15 @@ export default function About(){
             <ul>
                 <li>2012年</li>
                 <ul>
-                    <li><a href="https://www.sakaiku.jp/topics/2012/001915.html">第６回埼玉県第４種新人戦県大会優勝</a></li>
-                    <li><a href="https://jr-soccer.jp/2012/08/20/post3903/">第36回関東少年サッカー大会優勝</a></li>
-                    <li><a href="https://jr-soccer.jp/2012/09/19/post4207/">バーモントカップ第22回全日本少年フットサル大会埼玉県大会優勝</a></li>
+                    <li><a href="https://www.sakaiku.jp/topics/2012/001915.html">第６回埼玉県第４種新人戦県大会 優勝</a></li>
+                    <li><a href="https://jr-soccer.jp/2012/08/20/post3903/">第36回関東少年サッカー大会 優勝</a></li>
+                    <li><a href="https://jr-soccer.jp/2012/09/19/post4207/">バーモントカップ第22回全日本少年フットサル大会埼玉県大会 優勝</a></li>
                 </ul>
             </ul>
             <ul>
                 <li>2013年</li>
                 <ul>
-                    <li><a href="https://jr-soccer.jp/2013/01/06/post3356/">バーモントカップ第22回全日本少年フットサル大会全国ベスト16</a></li>
+                    <li><a href="https://jr-soccer.jp/2013/01/06/post3356/">バーモントカップ第22回全日本少年フットサル大会全国 ベスト16</a></li>
                     <li><a href="http://www.fcfukaya.com/">フットボールクラブ深谷に入団</a></li>
                 </ul>
             </ul>
@@ -52,13 +52,32 @@ export default function About(){
                 <li>2016年</li>
                 <ul>
                     <li>正智深谷高等学校に入学</li>
-                    <li><a href="https://shochi.jp/clublog/2016/1121_2496/">全国高校サッカー選手権埼玉県予選優勝</a></li>
+                    <li><a href="https://shochi.jp/clublog/2016/1121_2496/">第95回全国高校サッカー選手権埼玉県予選 優勝</a></li>
                 </ul>
             </ul>
             <ul>
                 <li>2017年</li>
                 <ul>
-                    <li><a href="https://saitama-soccer.jp/report/2191/">第95回全国高校サッカー選手権大会全国ベスト8</a></li>
+                    <li><a href="https://saitama-soccer.jp/report/2191/">第95回全国高校サッカー選手権大会 全国ベスト8</a></li>
+                    <li><a href="https://saitama-soccer.jp/report/3040/">埼玉県高等学校サッカー新人大会 準優勝</a></li>
+                    <li><a href="https://www.sfa2.jp/1246/">第60回関東高等学校サッカー大会埼玉県予選 準優勝</a></li>
+                    <li><a href="https://saitama-soccer.jp/report/12714/">第96回全国高校サッカー選手権埼玉県予選 ベスト8</a></li>
+                </ul>
+            </ul>
+            <ul>
+                <li>2018年</li>
+                <ul>
+                    <li><a href="https://web.gekisaka.jp/news/detail/?237784-237784-fl">埼玉県高等学校サッカー新人大会 ベスト8</a></li>
+                    <li><a href="https://web.gekisaka.jp/news/detail/?237743-237743-fl">↑の関連記事</a></li>
+                    <li><a href="https://saitama-soccer.jp/report/22984/">全国高校総体サッカー大会埼玉県予選 ベスト8</a></li>
+                    <li><a href="https://saitama-soccer.jp/report/29088/">第97回全国高校サッカー選手権埼玉県予選 ベスト8</a></li>
+                    <li><a href="https://web.gekisaka.jp/player/?46184-46184-jp">ゲキサカでの選手詳細特集記事</a></li>
+                </ul>
+            </ul>
+            <ul>
+                <li>2019年</li>
+                <ul>
+                    <li>INIAD（東洋大学情報連携学部情報連携学科）に入学</li>
                 </ul>
             </ul>
             <h1 className={styles.head}>プログラミングスキル</h1>
@@ -67,6 +86,8 @@ export default function About(){
                 <li>C</li>
                 <li>JavaScript</li>
                 <li>HTML/CSS</li>
+                <li>TypeScript（ベンキョウチュウ）</li>
+                <li>Go（ベンキョウチュウ）</li>
             </ul>
             </div>
         </Layout>
