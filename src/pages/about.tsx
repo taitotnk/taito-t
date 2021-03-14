@@ -19,9 +19,9 @@ export default function About(){
                 <li><h3>所属：INIAD 2年（東洋大学情報連携学部情報連携学科エンジニアリングコース）</h3></li>
             </ul>
             <h1 className={styles.head}>自己紹介</h1>
-            <p><b>幼稚園～高校生の12年間サッカーをやっていました。周りでプロサッカー選手になった友人などかなりガチな環境でサッカーに取り組んでいましたが
+            <p>幼稚園～高校生の12年間サッカーをやっていました。周りでプロサッカー選手になった友人などかなりガチな環境でサッカーに取り組んでいましたが
                 どうしてもケガが多いので方向転換し、現在は大学でコンピュータサイエンス
-                を学んでいます。特にWebのフロントエンドとサーバーサイドの両方に興味があり、最近ではNext.jsについて学んでコードを書いたり、Golangに入門したりしています。</b></p>
+                を学んでいます。特にWebのフロントエンドとサーバーサイドの両方に興味があり、最近ではNext.jsについて学んでコードを書いたり、Golangに入門したりしています。</p>
             <h1 className={styles.head}>経歴</h1>
             <ul>
                 <li>2007年</li>
@@ -88,6 +88,15 @@ export default function About(){
                 <li>HTML/CSS</li>
                 <li>TypeScript（ベンキョウチュウ）</li>
                 <li>Go（ベンキョウチュウ）</li>
+            </ul>
+            <h1 className={styles.head}>これから学びたいこと</h1>
+            <ul>
+                <li>Docker</li>
+                <li>Kubernetes</li>
+                <li>機械学習</li>
+                <li>深層学習</li>
+                <li>SQL</li>
+                <li>Java</li>
             </ul>
             </div>
         </Layout>
