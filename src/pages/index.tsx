@@ -55,7 +55,7 @@ export default function Home( {allPostsData}: {
             </div>
           ))}
           <div className={index_style.pager}>
-           <Link href="/archive/[page]" as="/archive/2"><a className={index_style.next}>Next →</a></Link>
+           <Link href="/archive/[page]" as="/archive/2"><a className={index_style.next}>Prev →</a></Link>
           </div>
     </Layout>
   )

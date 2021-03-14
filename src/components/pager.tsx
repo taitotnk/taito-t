@@ -23,14 +23,14 @@ const Pager = (props: props) => {
       <span className={style.prev}>
         {prevPage ? (
           <Link href={href} as={asCallback(prevPage)}>
-            <a>← Prev</a>
+            <a>← Next</a>
           </Link>
         ) : ''}
       </span>
       <span className={style.next}>
         {nextPage ? (
           <Link href={href} as={asCallback(nextPage)}>
-            <a>Next →</a>
+            <a>Preb →</a>
           </Link>
         ) : ''}
       </span>
