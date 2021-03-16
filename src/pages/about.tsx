@@ -96,7 +96,7 @@ export default function About(){
                 <li>機械学習</li>
                 <li>深層学習</li>
                 <li>SQL</li>
-                <li>Java</li>
+                <li>Rust</li>
             </ul>
             </div>
         </Layout>

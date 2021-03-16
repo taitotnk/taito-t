@@ -12,3 +12,11 @@
 .wrap {
     font-weight: bold;
 }
+
+.wrap a {
+    color:cornflowerblue
+}
+
+.wrap a:hover {
+    color: red;
+}
