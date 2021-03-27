@@ -63,7 +63,7 @@ export default function Home({ allPostsData }: {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const MAX_COUNT: number = 2
+  const MAX_COUNT: number = 3
   const allPostsData = getSortedPostsData()
   return {
     props: {
