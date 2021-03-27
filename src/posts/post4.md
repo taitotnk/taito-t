@@ -43,7 +43,7 @@ tag: 'ハッカソン'
 # 作成したもの
 ***
 ## Morpho music（読み方：モーフォミュージック）
-<img src="https://taito-t.com/images/morphomusic_logo.jpg" width="80%">  
+<img src="https://taito-t.com/images/morphomusic_logo.jpg" width="100%">  
 
 これは、LINEで受けっとたメッセージを形態素解析して、解析結果を使って曲検索を行ってくれるLINEボットアプリです。  
 名前についてる**Morpho**は**Morphological**（形態学的）からとっています。
@@ -76,4 +76,4 @@ tag: 'ハッカソン'
 
 # 使用技術
 ***
-<img src="https://taito-t.com/images/post4_architecture.jpg" width="80%"> 
+<img src="https://taito-t.com/images/post4_architecture.jpg" width="100%"> 
