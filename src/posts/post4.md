@@ -62,13 +62,15 @@ tag: 'ハッカソン'
   
 <br>
 
-# 形態素解析って何？
+# 形態素解析ってなに？
 ***
 簡単に説明すると、私たちが普段使っている言葉「自然言語」の単語の意味が分かる最小単位まで分割する技術のことです。  
 
-**今日の天気は良いですね**  
+**例)**
 
-**今日/の/天気/は/良い/です/ね**  
+- **今日の天気は良いですね**  
+
+- **今日/の/天気/は/良い/です/ね**  
 
 こんな感じに分析してくれます。
 
@@ -101,7 +103,7 @@ tag: 'ハッカソン'
 
 # Botの解説
 ***
-開発環境
+使用ライブラリなど
 ```toml
 [tool.poetry]
 name = "morphomusic"
@@ -132,30 +134,6 @@ build-backend = "poetry.core.masonry.api"
 
 今回はBotServerをDjangoで作成しています。
 また、短期間で急いで開発しているので、雑なコードになっている可能性がありますのでご了承ください...
-```python
-#bot/views.py
-
-from django.conf import settings
-from django.http import HttpResponse, HttpResponseForbidden
-import json
-import requests
-import urllib
-import re
-from django.views.decorators.csrf import csrf_exempt
-from api.models import Song, Lineuser
-from linebot import (
-    LineBotApi, WebhookHandler
-)
-from linebot.exceptions import (
-    InvalidSignatureError, LineBotApiError
-)
-from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage, StickerSendMessage,
-)
-```
-必要なモジュールを適宜importします。
-
-<br>
 
 ```python
 #api/models.py
@@ -178,7 +156,7 @@ class Song(models.Model):
     created_date = models.DateTimeField(default=datetime.datetime.now)
 
 ```
-今回はapiとbotのアプリをDjangoプロジェクトで立ち上げているので、apiのほうでmodel管理しています。
+今回はapiとbotのアプリをDjangoプロジェクトで立ち上げているので、apiのほうでmodel管理をしています。
 
 <br>
 
@@ -194,6 +172,33 @@ urlpatterns = [
 
 ```
 'callback/'を叩くと、views.pyのcallback関数が呼ばれます。
+
+
+<br>
+
+```python
+#bot/views.py
+
+from django.conf import settings
+from django.http import HttpResponse, HttpResponseForbidden
+import json
+import requests
+import urllib
+import re
+from django.views.decorators.csrf import csrf_exempt
+from api.models import Song, Lineuser
+from linebot import (
+    LineBotApi, WebhookHandler
+)
+from linebot.exceptions import (
+    InvalidSignatureError, LineBotApiError
+)
+from linebot.models import (
+    MessageEvent, TextMessage, TextSendMessage, StickerSendMessage,
+)
+```
+views.pyで処理を書いていきます。  
+必要なモジュールを適宜importします。
 
 <br>
 
@@ -225,7 +230,7 @@ def callback(request):
         return HttpResponseForbidden()
     return HttpResponse('OK', status=200)
 ```
-callback関数はこんな感じになってます。
+callback関数はこんな感じになっています。  
 一番上の**LINE_CHANNEL_ACCESS_TOKEN**と**LINE_CHANNEL_SECRET**は適宜自分で取得したものに置き換えてください。  
 また、CSRF検証を無効化したいので、**@csrf_exempt**これを忘れずにつけます。
 

@@ -86,5 +86,5 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 function range(stop: number) {
-    return Array.from({ length: stop }, (_, i) => i + 1)
+    return Array.from({ length: stop }, (_, i) => i + 1) //1~stopの配列
 }
