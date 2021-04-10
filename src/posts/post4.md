@@ -234,4 +234,21 @@ callback関数はこんな感じになっています。
 一番上の**LINE_CHANNEL_ACCESS_TOKEN**と**LINE_CHANNEL_SECRET**は適宜自分で取得したものに置き換えてください。  
 また、CSRF検証を無効化したいので、**@csrf_exempt**これを忘れずにつけます。
 
+<br>
+
+```python
+#bot/views.py
+
+@handler.add(MessageEvent, message=TextMessage)
+def handle_song_message(event):
+    # 送信されたメッセージ
+    text = event.message.text
+    # 送信したユーザーのuserId
+    user_id = event.source.user_id
+```
+
+上のcallback関数で認証が通ればこの関数が呼ばれます。  
+この関数はメッセージのイベントでかつそのメッセージがテキストメッセージだった場合に呼び出されます。  
+ここでtext変数に送信されたテキストメッセージの内容とuser_id変数にユーザーのIDを格納します。
+
 続きは長くなるので今回はここまでで
