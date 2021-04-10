@@ -197,7 +197,8 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage, StickerSendMessage,
 )
 ```
-views.pyで処理を書いていきます。  
+views.pyで処理を書いていきます。
+viwes.pyは約300行のコードとなっているので上から分解しながら説明していきます。  
 必要なモジュールを適宜importします。
 
 <br>
@@ -250,5 +251,86 @@ def handle_song_message(event):
 上のcallback関数で認証が通ればこの関数が呼ばれます。  
 この関数はメッセージのイベントでかつそのメッセージがテキストメッセージだった場合に呼び出されます。  
 ここでtext変数に送信されたテキストメッセージの内容とuser_id変数にユーザーのIDを格納します。
+
+<br>
+
+```python
+#bot/views.py
+
+#送信されたメッセージが20文字より多い場合はエラー処理
+if len(text) > 20:
+    Lineuser_obj = Lineuser.objects.get(user_id=user_id)
+    # 停止されていれば20文字以上のメッセージを送信できる
+    if Lineuser_obj.stop is False:
+        line_bot_api.reply_message(
+            event.reply_token,
+            [
+                TextSendMessage(text="20文字以下のメッセージを送ってください"),
+                StickerSendMessage(package_id="11537",
+                                    sticker_id="52002739")
+            ]
+        )
+```
+ここで送られてきたメッセージが20文字以上だったらエラー処理をします。  
+送信される文字が多いと、その分単語数が増えてしまい、１度にたくさんの曲情報が出力されてしまうので制限を設けました。  
+しかし、LineuserモデルのstopカラムがTrueだった場合は、ボットが停止状態なので、20文字以上の文字が送れるようにしています。
+
+<br>
+
+```python
+#bot/views.py
+
+elif text == "履歴":
+        line_bot_api.reply_message(
+            event.reply_token,
+            [
+                TextSendMessage(text="こちらから履歴が見られます" + "\n"
+                                "URL: https://liff.line.me/1655768482-PVW85dOD")
+            ]
+        )
+elif text == "停止":
+    Lineuser_obj = Lineuser.objects.get(user_id=user_id)
+    # すでに停止状態
+    if Lineuser_obj.stop is True:
+        line_bot_api.reply_message(
+            event.reply_token,
+            [
+                TextSendMessage(text="既にbotは停止状態です。")
+            ]
+        )
+    # 停止されていなければ停止状態に更新する
+    else:
+        Lineuser_obj.stop = True
+        Lineuser_obj.save()
+        line_bot_api.reply_message(
+            event.reply_token,
+            [
+                TextSendMessage(text="bot返信機能を停止しました。")
+            ]
+        )
+elif text == "解除":
+    Lineuser_obj = Lineuser.objects.get(user_id=user_id)
+    # 停止されていれば解除する
+    if Lineuser_obj.stop is True:
+        Lineuser_obj.stop = False
+        Lineuser_obj.save()
+        line_bot_api.reply_message(
+            event.reply_token,
+            [
+                TextSendMessage(text="bot返信機能の停止を解除しました。")
+            ]
+        )
+    # 停止されていなければそのまま
+    else:
+        line_bot_api.reply_message(
+            event.reply_token,
+            [
+                TextSendMessage(text="停止していないので解除状態です。")
+            ]
+        )
+```
+送信されたメッセージが"履歴"だったら個人の曲情報の履歴が見れるページのURLを返します。  
+メッセージが"停止"だったら、LineuserモデルのstopカラムをTrue更新します。（既にTrueだったら"既にbotは停止状態です。"というメッセージを返します。）  
+メッセージが"解除"だった場合は、stopカラムをFalseに更新します。（既にFalseだった場合は"停止していないので解除状態です。"というメッセージを返します。）  
 
 続きは長くなるので今回はここまでで
