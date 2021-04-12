@@ -333,4 +333,248 @@ elif text == "解除":
 メッセージが"停止"だったら、LineuserモデルのstopカラムをTrue更新します。（既にTrueだったら"既にbotは停止状態です。"というメッセージを返します。）  
 メッセージが"解除"だった場合は、stopカラムをFalseに更新します。（既にFalseだった場合は"停止していないので解除状態です。"というメッセージを返します。）  
 
-続きは長くなるので今回はここまでで
+<br>
+
+```python
+#bot/views.py
+
+else:
+    word_lis = morpho_analysis(text)
+    # 形態素解析したリストの中身が空だったらエラー処理して返す
+    if len(word_lis) == 0:
+        print("error:analysis result is empty")
+        line_bot_api.reply_message(
+            event.reply_token,
+            [
+                TextSendMessage(
+                    text="もう少し長い文章でメッセージを送ってください。\n例：今日の天気はいいですね。"
+                ),
+            ]
+        )
+        return
+    # timeoutしたらエラー処理
+    if word_lis == "requests.exceptions.Timeout":
+        print("error:timeout")
+        line_bot_api.reply_message(
+            event.reply_token,
+            [
+                TextSendMessage(
+                    text="サーバー側に問題があるようです。\n復旧するまでお待ちください。\n"
+                ),
+            ]
+        )
+        return
+
+    user_data, _ = Lineuser.objects.get_or_create(user_id=user_id)
+
+    # 曲情報をまとめたリスト
+    song_info = []
+
+    for word in word_lis:
+        data = search_song(word)
+        # timeoutしたらエラー処理
+        if data == "requests.exceptions.Timeout":
+            print("error:timeout")
+            line_bot_api.reply_message(
+                event.reply_token,
+                [
+                    TextSendMessage(
+                        text="サーバー側に問題があるようです。\n復旧するまでお待ちください。\n"
+                    ),
+                ]
+            )
+            return
+
+        # 検索結果が0件だったら次のワードで検索
+        if len(data) == 0:
+            continue
+        song_info.append(data)
+
+    # 曲情報が空だった場合は見つからない返信をする
+    if len(song_info) == 0:
+        line_bot_api.reply_message(
+            event.reply_token,
+            [
+                TextSendMessage(text="この文章では曲が見つかりませんでした。\n他の文章でお試しください。")
+            ]
+        )
+        return
+
+    # ユーザーがDBに存在したらユーザーを関連付けて曲情報を格納し、存在しなかったら新規作成して曲情報追加
+    create_list = []
+    msg_array = []
+    for i in range(len(song_info)):
+        create_list.append(Song(
+            line_user=user_data,
+            song_name=song_info[i][0]["title"],
+            artist_name=song_info[i][0]["artist"],
+            buy_url=song_info[i][0]["url"],
+            artwork_url=song_info[i][0]["artwork"]
+        ))
+        msg_array.append(TextSendMessage(
+            text="曲名: " + song_info[i][0]["title"] + "\n"
+            "アーティスト名: " + song_info[i][0]["artist"] + "\n"
+            "URL: " + song_info[i][0]["url"] + "\n"
+        ))
+    Song.objects.bulk_create(create_list)
+
+    # userのstopカラムがFalseだったら返信をする
+    if user_data.stop is False:
+        # 検索結果を返信
+        line_bot_api.reply_message(event.reply_token, msg_array)
+
+```
+正常にメッセージが送信されたら、
+- **morpho_analysis**
+- **search_song**
+
+この二つの関数を使って解析し、曲情報を取得します。  
+もし、形態素解析した単語の要素数が空だったらエラー処理にします。  
+また、Web APIサーバーがの障害による問題っも発生する可能性を考慮して、リクエストしてレスポンスが返ってくるまでのタイムアウトのエラー処理を実装しています。詳しいタイムアウトの設定は**morpho_analysis**と**search_song**関数で設定してあります。  
+
+**Lineuser.objects.get_or_create(user_id=user_id)**  
+ここではuser_idが既に登録されていたらuser_idをそのまま取得し、もし未登録の場合は登録をしてから取得します。  
+
+**song_info** のリストには取得した曲情報を追加していきます。  
+これは、reply_tokenは１度の返信で期限切れになってしまうのでリストに格納して１回で返信するためです。
+
+**create_list**にはDBに登録するオブジェクトを格納します。
+これは**bulk_create()** を利用するためです。bulk_createとは、大量のデータをDBに登録する動作でfor文を回さずに、１度に登録してくれるので圧倒的に効率よくDBに登録することができる関数です。
+
+<br>
+
+```python
+#bot/views.py
+
+GCP_API＿KEY = settings.GCP_API_KEY
+GCP_URL = "https://language.googleapis.com/v1/documents:analyzeSyntax?key=" + GCP_API＿KEY
+
+# 送信されたメッセージを形態素解析して単語のリストを返す関数
+def morpho_analysis(text):
+    header = {'Content-Type': 'application/json'}
+    body = {
+        "document": {
+            "type": "PLAIN_TEXT",
+            "language": "JA",
+            "content": text
+        },
+        "encodingType": "UTF8"
+    }
+
+    # connect, read timeoutを10秒に設定
+    try:
+        # json形式で結果を受け取る
+        response = requests.post(GCP_URL, headers=header,
+                                 json=body, timeout=10.0).json()
+    # timeoutならエラー処理
+    except requests.exceptions.ConnectTimeout:
+        return "requests.exceptions.Timeout"
+
+    word_len = len(response["tokens"])
+    word_list = []
+    # 漢字用パターン
+    kanji = re.compile(r'^[\u4E00-\u9FD0]+$')
+    for i in range(word_len):
+        word = response["tokens"][i]["lemma"]
+        # 二文字以上の単語はリストに追加する
+        if(len(word) >= 2):
+            word_list.append(response["tokens"][i]["lemma"])
+        # wordが漢字なら一文字でも追加
+        elif kanji.fullmatch(word):
+            word_list.append(response["tokens"][i]["lemma"])
+    return word_list
+```
+GCP_API_KEYは各自、取得したものを使用します。  
+この関数では、送信されたメッセージをGoogle Cloud Natural Language APIに投げて形態素解析した結果を取得します。  
+（本当はMecabを利用したかったのですが、日本語の形態素解析で単語ファイルのサイズが大きすぎてHeroku（無料枠）のデプロイがリジェクトされるという記事を発見してしまったので断念しました...）  
+
+requests.postのtimeoutで秒数を指定します。今回は10.0秒で指定しています。もし、タイムアウトした場合はエラーを返します。  
+
+形態素解析した際に、ひらがな１文字の単語があった場合は取り除いています。これは、ひらがな１文字の単語を検索対象にしてしまうと、曲情報をかなり多く検索してしまい、動作も重くなり、ユーザーに多くの情報を返信してしまう可能性があるので除きました。  
+また、漢字１文字の単語の場合は検索対象に入れたいので、正規表現を使って分類しています。
+
+<br>
+
+```python
+#bot/views.py
+
+# paramsをitunesAPIで使えるようにエンコードする関数
+def song_search_encode(data):
+    query = ""
+    for key, val in data.items():
+        # termに空白があったら+に置き換える
+        if key == "term":
+            val.replace(" ", "+")
+        query += key + "=" + val + "&"
+    query = query[0:-1]
+    return query
+
+# 曲のjsonデータを使いやすいようにパースする関数
+def song_parser(json_data):
+    lst_in = json_data.get("results")
+    lst_ret = []
+
+    for d in lst_in:
+        d_ret = {
+            "title": d.get("trackName"),
+            "artist": d.get("artistName"),
+            "album": d.get("collectionName"),
+            "artwork": d.get("artworkUrl100"),
+            "url": urllib.parse.unquote(d.get("trackViewUrl")),
+            "id_track": d.get("trackId"),
+            "id_artist": d.get("artistId"),
+            "id_album": d.get("collectionId"),
+            "no_disk": d.get("discNumber"),
+            "no_track": d.get("trackNumber"),
+        }
+        lst_ret.append(d_ret)
+    return lst_ret
+
+# 曲を検索してjsonデータを返す関数
+def search_song(word):
+    ITUNES_URL = 'https://itunes.apple.com/search?'
+    params = {
+        "term": word,
+        "media": "music",
+        "entity": "song",
+        "attribute": "songTerm",
+        "country": "JP",
+        "lang": "ja_jp",  # "en_us",
+        "limit": "1",
+    }
+
+    ITUNES_URL = ITUNES_URL + song_search_encode(params)
+
+    # connect, read timeoutを10秒に設定
+    try:
+        res = requests.get(ITUNES_URL, timeout=10.0)
+
+    # timeoutならエラー処理
+    except requests.exceptions.ConnectTimeout:
+        return "requests.exceptions.Timeout"
+
+    json_d = json.loads(res.text)
+    data = song_parser(json_d)
+    return data
+```
+- **song_search_encode**
+- **song_parser**
+
+この２つの関数は、曲情報を検索したり、使いやすくしたりするために使用しています。  
+
+今回は曲情報を検索するために、ITunes APIを利用しています。  
+このAPIは登録いらずなので手軽に導入することができました。
+ここでもタイムアウトの設定を忘れずにします。  
+
+
+
+
+今回作成したBotアプリのソースコードは、[こちら](https://github.com/Taito-Code/MorphoMusicBackend) にあるので見たい場合はここを参照してください。
+
+# まとめ
+***
+結果としては入賞できませんでしたが、ハッカソンを経験できて春休みで大きく成長できたと感じました。  
+また、ハッカソンで出会ったつながりもあったので、またどこかで会ったときはよろしくお願いします(?)  
+暇があればまたチャレンジして、次は入賞できるように頑張りたいと思います。
+
+最後まで読んでいただきありがとうございました！！
