@@ -9,7 +9,7 @@ export default function About(){
             <Head>
                 <title>About me</title>
                 <meta name="og:title" content={siteTitle} />
-                <meta property="og:image" content="/images/taitologo.jpg" />
+                <meta property="og:image" content="https://taito-t.com/images/taitologo.jpg" />
             </Head>
             <div className={styles.wrap}>
             <h1 className={styles.head}>プロフィール</h1>
