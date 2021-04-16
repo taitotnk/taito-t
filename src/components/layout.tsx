@@ -13,10 +13,7 @@ export default function Layout({ children, home }: {
         <div>
             <Head>
                 <link rel="icon" href="https://taito-t.com/images/taitologo.jpg" />
-                <meta name="description" content="Taitoの技術メモ＆ポートフォリオサイトです" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:site" content="@taito_1211" />
             </Head>
             <header className={styles.header}>
                 <div className={styles.header_cont}>

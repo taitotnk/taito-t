@@ -26,6 +26,9 @@ export default function Home({ allPostsData }: {
         <meta property="og:description" content="Taitoの技術メモ＆ポートフォリオサイトです" />
         <meta property="og:image" content="/images/taitologo.jpg" />
         <meta property="twitter:image" content="/images/taitologo.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@taito_1211" />
+        <meta name="description" content="Taitoの技術メモ＆ポートフォリオサイトです" />
       </Head>
       <h1 className={index_style.name}>I am Taito</h1>
       <div className={index_style.icon_cont}>
