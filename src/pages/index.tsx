@@ -6,10 +6,9 @@ import Layout from "../components/layout";
 import Image from "next/image";
 import index_style from "../styles/index.module.css";
 import { siteTitle } from "../components/layout";
+import { NextPage } from "next";
 
-export default function Home({
-  allPostsData,
-}: {
+type Props = {
   allPostsData: {
     id: string;
     title: string;
@@ -18,7 +17,9 @@ export default function Home({
     thumbnail: string;
     tag: string;
   }[];
-}) {
+};
+
+const Home: NextPage<Props> = ({ allPostsData }) => {
   return (
     <Layout home>
       <Head>
@@ -100,7 +101,7 @@ export default function Home({
       </div>
     </Layout>
   );
-}
+};
 
 export const getStaticProps: GetStaticProps = async () => {
   const MAX_COUNT: number = 3;
@@ -111,3 +112,5 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   };
 };
+
+export default Home;
