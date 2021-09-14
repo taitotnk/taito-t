@@ -169,6 +169,7 @@ export default function About() {
         </ul>
         <h1 className={styles.head}>これから学びたいこと</h1>
         <ul>
+          <li>Storybook</li>
           <li>Docker</li>
           <li>アクセシビリティ</li>
           <li>Vue</li>
