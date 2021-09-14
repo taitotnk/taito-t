@@ -162,17 +162,16 @@ export default function About() {
         <ul>
           <li>Python</li>
           <li>C</li>
-          <li>JavaScript</li>
           <li>HTML/CSS</li>
-          <li>TypeScript（ベンキョウチュウ）</li>
-          <li>Go（ベンキョウチュウ）</li>
+          <li>OCaml</li>
+          <li>JavaScript</li>
+          <li>TypeScript</li>
         </ul>
         <h1 className={styles.head}>これから学びたいこと</h1>
         <ul>
           <li>Docker</li>
-          <li>Kubernetes</li>
-          <li>機械学習</li>
-          <li>深層学習</li>
+          <li>アクセシビリティ</li>
+          <li>Vue</li>
           <li>SQL</li>
           <li>Rust</li>
         </ul>
