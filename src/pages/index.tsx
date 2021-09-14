@@ -1,7 +1,8 @@
-import Layout from "../components/layout";
+import Layout from "../components/templates/layout";
 import Head from "next/head";
 import styles from "../styles/about.module.css";
-import { siteTitle } from "../components/layout";
+import { siteTitle } from "../components/templates/layout";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -14,6 +15,13 @@ export default function About() {
           content="https://taito-t.com/images/taitologo.jpg"
         />
       </Head>
+      <Image
+        src="/images/profile.jpg"
+        className={styles.profile_image}
+        height={210}
+        width={205}
+        alt="profile-img"
+      />
       <div className={styles.wrap}>
         <h1 className={styles.head}>プロフィール</h1>
         <ul>

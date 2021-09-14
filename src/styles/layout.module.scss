@@ -1,3 +1,5 @@
+$main-color: #4717f6;
+
 .profile_image {
     border-radius: 9999px;
 }
@@ -26,6 +28,7 @@
 {
   .home_link {
     margin: 1em;
+    color: $main-color;
   }
 
   .header_cont {

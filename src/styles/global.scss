@@ -1,3 +1,4 @@
+@import "./constance.scss";
 
 a {
     color:black; 
@@ -6,6 +7,14 @@ a {
   
 a:hover {
     color: red;
+}
+
+h3 {
+    color: #ffffff;
+  }
+
+:root {
+    background-color: $main-color;
 }
 
 /* PCのときだけ中央揃え */
@@ -20,8 +29,8 @@ article {
 }
 
 /* コードの文字フォント */
-@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
 code{
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Rubik', sans-serif;
   }
 

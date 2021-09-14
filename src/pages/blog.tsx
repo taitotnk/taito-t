@@ -2,10 +2,10 @@ import Head from "next/head";
 import { getSortedPostsData } from "../lib/posts";
 import { GetStaticProps } from "next";
 import Link from "next/link";
-import Layout from "../components/layout";
+import Layout from "../components/templates/layout";
 import Image from "next/image";
 import index_style from "../styles/index.module.css";
-import { siteTitle } from "../components/layout";
+import { siteTitle } from "../components/templates/layout";
 import { NextPage } from "next";
 
 type Props = {
