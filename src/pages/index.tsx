@@ -1,116 +1,182 @@
-import Head from "next/head";
-import { getSortedPostsData } from "../lib/posts";
-import { GetStaticProps } from "next";
-import Link from "next/link";
 import Layout from "../components/layout";
-import Image from "next/image";
-import index_style from "../styles/index.module.css";
+import Head from "next/head";
+import styles from "../styles/about.module.css";
 import { siteTitle } from "../components/layout";
-import { NextPage } from "next";
 
-type Props = {
-  allPostsData: {
-    id: string;
-    title: string;
-    created_at: string;
-    updated_at: string;
-    thumbnail: string;
-    tag: string;
-  }[];
-};
-
-const Home: NextPage<Props> = ({ allPostsData }) => {
+export default function About() {
   return (
-    <Layout home>
+    <Layout>
       <Head>
-        <title>{siteTitle}</title>
-        <meta property="og:title" content={siteTitle} />
+        <title>About me</title>
+        <meta name="og:title" content={siteTitle} />
         <meta
-          property="og:description"
-          content="Taitoの技術メモ＆ポートフォリオサイトです"
-        />
-        <meta
-          name="description"
-          content="Taitoの技術メモ＆ポートフォリオサイトです"
+          property="og:image"
+          content="https://taito-t.com/images/taitologo.jpg"
         />
       </Head>
-      <h1 className={index_style.name}>I am Taito</h1>
-      <div className={index_style.icon_cont}>
-        <a href="https://github.com/Taito-Code" target="_blank" rel="noopener">
-          <Image
-            className={index_style.icon}
-            src="/github-icon.png"
-            height={70}
-            width={70}
-            alt="github-icon"
-          />
-        </a>
-        <a href="https://twitter.com/taito_1211" target="_blank" rel="noopener">
-          <Image
-            className={index_style.icon}
-            src="/twitter-icon.png"
-            height={70}
-            width={70}
-            alt="twitter-icon"
-          />
-        </a>
-      </div>
-      {allPostsData.map(({ id, title, created_at, thumbnail, tag }) => (
-        <div className={index_style.post_list}>
-          <div className="max-w-lg rounded overflow-hidden shadow-md my-2">
-            <Link href={`/posts/${id}`} key={id}>
-              <a>
-                <Image
-                  className="w-full"
-                  src={thumbnail}
-                  height={300}
-                  width={600}
-                  alt="thumbnail"
-                  key={thumbnail}
-                />
+      <div className={styles.wrap}>
+        <h1 className={styles.head}>プロフィール</h1>
+        <ul>
+          <li>
+            <h3>氏名：田中 泰斗</h3>
+          </li>
+          <li>
+            <h3>生年月日：2000年12月11日</h3>
+          </li>
+          <li>
+            <h3>
+              所属：INIAD
+              3年（東洋大学情報連携学部情報連携学科エンジニアリングコース）
+            </h3>
+          </li>
+        </ul>
+        <h1 className={styles.head}>自己紹介</h1>
+        <p>
+          幼稚園～高校生の12年間サッカーをやっていました。周りでプロサッカー選手になった友人などかなりガチな環境でサッカーに取り組んでいましたが
+          どうしてもケガが多いので方向転換し、現在は大学でコンピュータサイエンス
+          を学んでいます。特にWebのフロントエンドとサーバーサイドの両方に興味があり、最近ではNext.jsについて学んでコードを書いたり、Golangに入門したりしています。
+        </p>
+        <h1 className={styles.head}>経歴</h1>
+        <ul>
+          <li>2007年</li>
+          <ul>
+            <li>
+              <a href="https://saitama-soccer.jp/team/kounanminami/">
+                江南南サッカー少年団に入団
               </a>
-            </Link>
-            <div className="px-6 py-4">
-              <div className={index_style.title}>
-                <Link href={`/posts/${id}`} key={id}>
-                  <a>
-                    <div className="font-bold text-xl mb-2">
-                      <h2 key={title}>{title}</h2>
-                    </div>
-                  </a>
-                </Link>
-              </div>
-            </div>
-            <div className="px-0 py-0">
-              <div className={index_style.tag}>
-                <span className="inline-block bg-grey-lighter rounded-full px-0 py-0 text-sm font-semibold text-grey-darker mr-0">
-                  <h1 key={tag}>#{tag}</h1>
-                </span>
-              </div>
-              <h2 className={index_style.date} key={created_at}>
-                {created_at}
-              </h2>
-            </div>
-          </div>
-        </div>
-      ))}
-      <div className={index_style.pager}>
-        <Link href="/archive/[page]" as="/archive/2">
-          <a className={index_style.next}>Prev →</a>
-        </Link>
+            </li>
+          </ul>
+        </ul>
+        <ul>
+          <li>2012年</li>
+          <ul>
+            <li>
+              <a href="https://www.sakaiku.jp/topics/2012/001915.html">
+                第６回埼玉県第４種新人戦県大会 優勝
+              </a>
+            </li>
+            <li>
+              <a href="https://jr-soccer.jp/2012/08/20/post3903/">
+                第36回関東少年サッカー大会 優勝
+              </a>
+            </li>
+            <li>
+              <a href="https://jr-soccer.jp/2012/09/19/post4207/">
+                バーモントカップ第22回全日本少年フットサル大会埼玉県大会 優勝
+              </a>
+            </li>
+          </ul>
+        </ul>
+        <ul>
+          <li>2013年</li>
+          <ul>
+            <li>
+              <a href="https://jr-soccer.jp/2013/01/06/post3356/">
+                バーモントカップ第22回全日本少年フットサル大会全国 ベスト16
+              </a>
+            </li>
+            <li>
+              <a href="http://www.fcfukaya.com/">
+                フットボールクラブ深谷に入団
+              </a>
+            </li>
+          </ul>
+        </ul>
+        <ul>
+          <li>2015年</li>
+          <ul>大宮アルディージャユースに3か月間帯同</ul>
+        </ul>
+        <ul>
+          <li>2016年</li>
+          <ul>
+            <li>正智深谷高等学校に入学</li>
+            <li>
+              <a href="https://shochi.jp/clublog/2016/1121_2496/">
+                第95回全国高校サッカー選手権埼玉県予選 優勝
+              </a>
+            </li>
+          </ul>
+        </ul>
+        <ul>
+          <li>2017年</li>
+          <ul>
+            <li>
+              <a href="https://saitama-soccer.jp/report/2191/">
+                第95回全国高校サッカー選手権大会 全国ベスト8
+              </a>
+            </li>
+            <li>
+              <a href="https://saitama-soccer.jp/report/3040/">
+                埼玉県高等学校サッカー新人大会 準優勝
+              </a>
+            </li>
+            <li>
+              <a href="https://www.sfa2.jp/1246/">
+                第60回関東高等学校サッカー大会埼玉県予選 準優勝
+              </a>
+            </li>
+            <li>
+              <a href="https://saitama-soccer.jp/report/12714/">
+                第96回全国高校サッカー選手権埼玉県予選 ベスト8
+              </a>
+            </li>
+          </ul>
+        </ul>
+        <ul>
+          <li>2018年</li>
+          <ul>
+            <li>
+              <a href="https://web.gekisaka.jp/news/detail/?237784-237784-fl">
+                埼玉県高等学校サッカー新人大会 ベスト8
+              </a>
+            </li>
+            <li>
+              <a href="https://web.gekisaka.jp/news/detail/?237743-237743-fl">
+                ↑の関連記事
+              </a>
+            </li>
+            <li>
+              <a href="https://saitama-soccer.jp/report/22984/">
+                全国高校総体サッカー大会埼玉県予選 ベスト8
+              </a>
+            </li>
+            <li>
+              <a href="https://saitama-soccer.jp/report/29088/">
+                第97回全国高校サッカー選手権埼玉県予選 ベスト8
+              </a>
+            </li>
+            <li>
+              <a href="https://web.gekisaka.jp/player/?46184-46184-jp">
+                ゲキサカでの選手詳細特集記事
+              </a>
+            </li>
+          </ul>
+        </ul>
+        <ul>
+          <li>2019年</li>
+          <ul>
+            <li>INIAD（東洋大学情報連携学部情報連携学科）に入学</li>
+          </ul>
+        </ul>
+        <h1 className={styles.head}>プログラミングスキル</h1>
+        <ul>
+          <li>Python</li>
+          <li>C</li>
+          <li>HTML/CSS</li>
+          <li>OCaml</li>
+          <li>JavaScript</li>
+          <li>TypeScript</li>
+        </ul>
+        <h1 className={styles.head}>これから学びたいこと</h1>
+        <ul>
+          <li>Storybook</li>
+          <li>Docker</li>
+          <li>アクセシビリティ</li>
+          <li>Vue</li>
+          <li>SQL</li>
+          <li>Rust</li>
+        </ul>
       </div>
     </Layout>
   );
-};
-
-export const getStaticProps: GetStaticProps = async () => {
-  const MAX_COUNT: number = 3;
-  const allPostsData = getSortedPostsData();
-  return {
-    props: {
-      allPostsData: allPostsData.slice(0, MAX_COUNT),
-    },
-  };
-};
-
-export default Home;
+}

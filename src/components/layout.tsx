@@ -38,9 +38,9 @@ export default function Layout({
             </Link>
           </h3>
           <h3 className={styles.home_link}>
-            <Link href="/about">
+            <Link href="/blog">
               <a>
-                <h2>About me</h2>
+                <h2>Blog</h2>
               </a>
             </Link>
           </h3>
@@ -62,9 +62,7 @@ export default function Layout({
               alt="profile-img"
             />
           </>
-        ) : (
-          <></>
-        )}
+        ) : null}
       </header>
       <main>{children}</main>
       <footer className={styles.footer}>
