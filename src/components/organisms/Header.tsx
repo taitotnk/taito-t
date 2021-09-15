@@ -15,6 +15,11 @@ const Header: React.VFC = () => {
         </Link>
       </p>
       <p className={styles.header_right}>
+        <Link href="/works">
+          <a>Works</a>
+        </Link>
+      </p>
+      <p className={styles.header_right}>
         <Link href="/blog">
           <a>Blog</a>
         </Link>
