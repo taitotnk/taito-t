@@ -15,13 +15,13 @@ export default function About() {
           content="https://taito-t.com/images/taitologo.jpg"
         />
       </Head>
-      <Image
+      {/* <Image
         src="/images/profile.jpg"
         className={styles.profile_image}
         height={210}
         width={205}
         alt="profile-img"
-      />
+      /> */}
       <div className={styles.wrap}>
         <h1 className={styles.head}>プロフィール</h1>
         <ul>

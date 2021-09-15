@@ -1,4 +1,21 @@
-$main-color: #37474F;
-$sub-color: #607D8B;
-$accent-color: #F06292;
+// カラーリング
+$main-color: #E91E63;
+$sub-color: #F06292;
+$accent-color: #42A5F5;
 $text-color: #ffffff;
+
+//フォントの太さ
+$font-thick: 700;
+$font-normal: 500;
+
+// フォントサイズ
+$h1: 4rem;
+$h2: 3.2rem;
+$h3: 2.4rem;
+$h4: 1.8rem;
+$h5: 1.2rem;
+$p: 1.2rem;
+
+//画面サイズ
+$tablet: 800px;
+$mobile: 450px;
