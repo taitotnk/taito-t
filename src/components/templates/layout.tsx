@@ -3,15 +3,10 @@ import Link from "next/link";
 import React from "react";
 import styles from "../../styles/layout.module.scss";
 import Header from "../organisms/Header";
+import Footer from "../organisms/Footer";
 
 export const siteTitle = "taito-t.com";
-export default function Layout({
-  children,
-  home,
-}: {
-  children: React.ReactNode;
-  home?: boolean;
-}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div>
       <Head>
@@ -30,18 +25,7 @@ export default function Layout({
       </Head>
       <Header></Header>
       <main>{children}</main>
-      <footer className={styles.footer}>
-        <div className={styles.policy}>
-          <Link href="/policy">
-            <a>
-              <b>プライバシーポリシー</b>
-            </a>
-          </Link>
-        </div>
-        <div className={styles.rights}>
-          © 2021 Copyright taito-t.com All Rights Reserved.
-        </div>
-      </footer>
+      <Footer></Footer>
     </div>
   );
 }

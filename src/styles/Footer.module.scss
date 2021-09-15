@@ -1,0 +1,19 @@
+@import "../styles/constance.scss";
+
+.privacy {
+    font-weight: $font-normal;
+    text-align: center;
+    padding-top: 10px;
+    margin-bottom: -20px;
+    a {
+        color: $text-color;
+        &:hover {
+            color: $sub-color;
+        }
+    } 
+}
+
+.copyright {
+    text-align: center;
+    color: $text-color;
+}
