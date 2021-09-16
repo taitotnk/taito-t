@@ -3,8 +3,9 @@ import Head from "next/head";
 import styles from "../styles/about.module.css";
 import { siteTitle } from "../components/templates/layout";
 import Image from "next/image";
+import { NextPage } from "next";
 
-export default function About() {
+const Home: NextPage = () => {
   return (
     <Layout>
       <Head>
@@ -187,4 +188,6 @@ export default function About() {
       </div>
     </Layout>
   );
-}
+};
+
+export default Home;
