@@ -1,9 +1,13 @@
 import Layout from "../components/templates/layout";
 import Head from "next/head";
-import styles from "../styles/about.module.css";
+import styles from "../styles/index.module.scss";
 import { siteTitle } from "../components/templates/layout";
 import Image from "next/image";
 import { NextPage } from "next";
+import WhiteCard from "../components/atoms/WhiteCard";
+import profileData from "../data/profileData";
+import Profile from "../components/organisms/Profile";
+import { data } from "remark";
 
 const Home: NextPage = () => {
   return (
@@ -16,15 +20,15 @@ const Home: NextPage = () => {
           content="https://taito-t.com/images/taitologo.jpg"
         />
       </Head>
-      {/* <Image
-        src="/images/profile.jpg"
-        className={styles.profile_image}
-        height={210}
-        width={205}
-        alt="profile-img"
-      /> */}
       <div className={styles.wrap}>
-        <h1 className={styles.head}>プロフィール</h1>
+        <WhiteCard title={"Profile"}>
+          <Profile
+            name={profileData.name}
+            img={profileData.img}
+            birth={profileData.birth}
+            university={profileData.university}
+          />
+        </WhiteCard>
         <ul>
           <li>
             <h3>氏名：田中 泰斗</h3>

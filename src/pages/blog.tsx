@@ -4,7 +4,7 @@ import { GetStaticProps } from "next";
 import Link from "next/link";
 import Layout from "../components/templates/layout";
 import Image from "next/image";
-import index_style from "../styles/index.module.css";
+import index_style from "../styles/blog.module.scss";
 import { siteTitle } from "../components/templates/layout";
 import { NextPage } from "next";
 
