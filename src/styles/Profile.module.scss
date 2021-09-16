@@ -1,7 +1,10 @@
-.img {
+@import "../styles//constance.scss";
+
+.img_wrap {
     text-align: center;
+
 }
 
 .name {
-    font-size: large;
+    font-size: $h3;
 }
