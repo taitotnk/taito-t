@@ -1,10 +1,31 @@
 @import "../styles//constance.scss";
 
+.img {
+    border-radius: 50%;
+}
+
 .img_wrap {
     text-align: center;
-
+    margin: -30px 0 -30px;
 }
 
 .name {
-    font-size: $h3;
+    font-size: $h4;
+    font-weight: $font-thick;
+    text-align: center;
+    color: $accent-color;
+}
+
+.birth {
+    font-size: $h5;
+    font-weight: $font-thick;
+    text-align: center;
+    color: $accent-color;
+}
+
+.university {
+    font-size: $h5;
+    font-weight: $font-thick;
+    text-align: center;
+    color: $accent-color;
 }

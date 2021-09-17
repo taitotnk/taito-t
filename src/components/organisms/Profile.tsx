@@ -9,15 +9,15 @@ const Profile: React.VFC<ProfileType> = ({ name, img, birth, university }) => {
       <div className={styles.img_wrap}>
         <Image
           src={img}
-          height={150}
-          width={150}
+          height={120}
+          width={120}
           alt="profile-img"
           className={styles.img}
         />
       </div>
       <p className={styles.name}>{name}</p>
-      <p>{birth}</p>
-      <p>{university}</p>
+      <p className={styles.birth}>🎂 {birth}</p>
+      <p className={styles.university}>🏫 {university}</p>
     </>
   );
 };
