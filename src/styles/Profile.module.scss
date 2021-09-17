@@ -21,6 +21,7 @@
     font-weight: $font-thick;
     text-align: center;
     color: $accent-color;
+    margin-top: -20px;
 }
 
 .university {
@@ -28,4 +29,13 @@
     font-weight: $font-thick;
     text-align: center;
     color: $accent-color;
+    margin-top: -10px;
+}
+
+.introduction {
+    font-size: $h5;
+    font-weight: $font-thick;
+    text-align: center;
+    color: $accent-color;
+    
 }

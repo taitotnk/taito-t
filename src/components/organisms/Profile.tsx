@@ -3,7 +3,13 @@ import Image from "next/image";
 
 import styles from "../../styles/Profile.module.scss";
 
-const Profile: React.VFC<ProfileType> = ({ name, img, birth, university }) => {
+const Profile: React.VFC<ProfileType> = ({
+  name,
+  img,
+  birth,
+  university,
+  introduction,
+}) => {
   return (
     <>
       <div className={styles.img_wrap}>
@@ -18,6 +24,7 @@ const Profile: React.VFC<ProfileType> = ({ name, img, birth, university }) => {
       <p className={styles.name}>{name}</p>
       <p className={styles.birth}>🎂 {birth}</p>
       <p className={styles.university}>🏫 {university}</p>
+      <p className={styles.introduction}>{introduction}</p>
     </>
   );
 };
