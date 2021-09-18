@@ -8,6 +8,7 @@ import WhiteCard from "../components/atoms/WhiteCard";
 import profileData from "../data/profileData";
 import Profile from "../components/organisms/Profile";
 import { data } from "remark";
+import SkillList from "../components/organisms/SkillList";
 
 const Home: NextPage = () => {
   return (
@@ -29,7 +30,20 @@ const Home: NextPage = () => {
           introduction={profileData.introduction}
         />
       </WhiteCard>
-      <WhiteCard title={"Skill"}></WhiteCard>
+      <WhiteCard title={"Skill"}>
+        <SkillList
+          TypeScript={true}
+          JavaScipt={true}
+          Python={true}
+          C={true}
+          OCaml={true}
+          HTML={true}
+          CSS={true}
+          React={true}
+          Next={true}
+          Django={true}
+        />
+      </WhiteCard>
     </Layout>
   );
 };
