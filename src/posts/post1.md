@@ -2,7 +2,7 @@
 title: 'Djangoでブログを自作した'
 created_at: '2020-02-03'
 updated_at: '2020-02-03'
-thumbnail: '/images/taitologo.jpg'
+emoji: '🐣'
 tag: 'Django'
 ---
 

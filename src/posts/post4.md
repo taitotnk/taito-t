@@ -2,7 +2,7 @@
 title: '初めてのハッカソン ~オンライン開発合宿vol.1~ に参加した'
 created_at: '2020-03-27'
 updated_at: '2020-04-12'
-thumbnail: '/images/geek-project-post.jpg'
+emoji: '⛏️'
 tag: 'ハッカソン'
 ---
 

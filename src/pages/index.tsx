@@ -1,20 +1,17 @@
 import Layout from "../components/templates/layout";
 import Head from "next/head";
-import styles from "../styles/index.module.scss";
 import { siteTitle } from "../components/templates/layout";
-import Image from "next/image";
 import { NextPage } from "next";
 import WhiteCard from "../components/atoms/WhiteCard";
 import profileData from "../data/profileData";
 import Profile from "../components/organisms/Profile";
-import { data } from "remark";
 import SkillList from "../components/organisms/SkillList";
 
 const Home: NextPage = () => {
   return (
     <Layout>
       <Head>
-        <title>About me</title>
+        <title>taito-t.com</title>
         <meta name="og:title" content={siteTitle} />
         <meta
           property="og:image"

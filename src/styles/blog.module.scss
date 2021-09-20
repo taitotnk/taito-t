@@ -1,51 +1,45 @@
-.post_list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 80px;
-    
-}
+@import "../styles/constance.scss";
 
-.tag {
+.top_flex {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-bottom: -20px;
+}
+.under_flex {
+    display: flex;
+    justify-content: space-around ;
 }
 
 .title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    font-size: $h4;
+    font-weight: $font-thick;
+    color: $accent-color;
+    margin: 15px auto 0;
+}
+
+.emoji {
+    font-size: $h2;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+.tag {
+    font-size: $h5;
+    color: $accent-color;
+
 }
 
 .date {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    font-size: $h5;
+    color: $accent-color;
+    margin-left: 20px;
 }
 
-.name {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration:underline;
-    text-decoration-color: red;
-}
+@media (max-width: $tablet) {
+    .title {
+        font-size: $h5;
+    }
 
-.icon {
-    margin: 2em;
-}
-
-.icon_cont {
-    text-align: center;
-}
-
-.pager {
-    text-align: center;
-    margin-top: 60px;
-}
-
-.next {
-    font-size: x-large;
-    margin-left: 40%;
+    .emoji {
+        font-size: $h3;
+    }
 }
