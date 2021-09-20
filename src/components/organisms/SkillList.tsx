@@ -39,7 +39,7 @@ const SkillList: React.VFC<Props> = (Props) => {
   return (
     <div className={styles.flex}>
       <div className={styles.logo_wrap}>{TypeScript && <TypeScriptLogo />}</div>
-      <div className={styles.js_wrap}>{JavaScipt && <JavaScriptLogo />}</div>
+      <div className={styles.logo_wrap}>{JavaScipt && <JavaScriptLogo />}</div>
       <div className={styles.logo_wrap}>{Python && <PythonLogo />}</div>
       <div className={styles.logo_wrap}>{C && <CLogo />}</div>
       <div className={styles.logo_wrap}>{OCaml && <OCamlLogo />}</div>
