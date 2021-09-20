@@ -2,7 +2,7 @@
 title: 'DockerでReactの開発環境を設定する'
 created_at: '2020-02-09'
 updated_at: '2020-02-09'
-thumbnail: '/images/DockerReact.png'
+emoji: '🐳'
 tag: 'React'
 ---
 

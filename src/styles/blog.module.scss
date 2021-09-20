@@ -1,0 +1,45 @@
+@import "../styles/constance.scss";
+
+.top_flex {
+    display: flex;
+    margin-bottom: -20px;
+}
+.under_flex {
+    display: flex;
+    justify-content: space-around ;
+}
+
+.title {
+    font-size: $h4;
+    font-weight: $font-thick;
+    color: $accent-color;
+    margin: 15px auto 0;
+}
+
+.emoji {
+    font-size: $h2;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+.tag {
+    font-size: $h5;
+    color: $accent-color;
+
+}
+
+.date {
+    font-size: $h5;
+    color: $accent-color;
+    margin-left: 20px;
+}
+
+@media (max-width: $tablet) {
+    .title {
+        font-size: $h5;
+    }
+
+    .emoji {
+        font-size: $h3;
+    }
+}

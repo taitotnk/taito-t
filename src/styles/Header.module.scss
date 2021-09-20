@@ -1,0 +1,58 @@
+@import "../styles/constance.scss";
+
+.container{
+    position: relative;
+    background-color: $accent-color;
+    height: 80px;
+    padding: 0 10% 20px;
+    margin: -10px -10px 50px;
+}
+
+.header_home{
+    font-size: $h4;
+    font-weight: $font-thick;
+    float: left;
+    a {
+        color: $text-color;
+        &:hover {
+            color: $sub-color;
+        }
+    } 
+}
+
+.header_right{
+    color: $text-color;
+    font-size: $h4;
+    font-weight: $font-thick;
+    float: right;
+    margin-right: 10px;
+    border: 2px solid;
+    border-radius: 8px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    &:hover {
+        background-color: $sub-color;
+    }
+
+    a {
+        color: $text-color;
+    } 
+}
+
+@media (max-width: $tablet) {
+    .container{
+        height: 65px;
+        padding: 0 1% 0;
+        margin: -10px -10px 50px;
+    }
+
+    .header_home{
+        font-size: $h5;
+    }
+    
+    .header_right{
+        margin-right: 5px;
+        padding: 0 5px;
+        font-size: $h5;
+    }
+}

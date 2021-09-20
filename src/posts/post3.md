@@ -2,7 +2,7 @@
 title: 'Next.jsとTypeScriptでポートフォリオ作り変えた'
 created_at: '2020-03-09'
 updated_at: '2020-03-09'
-thumbnail: '/images/next.jpg'
+emoji: '⚡'
 tag: 'React'
 ---
 
