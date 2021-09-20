@@ -2,49 +2,44 @@ import { getAllPostIds, getPostData } from "../../lib/posts";
 import { GetStaticProps, GetStaticPaths } from "next";
 import Layout from "../../components/templates/layout";
 import Head from "next/head";
-import postStyles from "../../styles/post-styles.module.css";
+import styles from "../../styles/Post.module.scss";
 import Image from "next/image";
+import PostWhiteCard from "../../components/atoms/PostWhiteCard";
 
-export default function Post({
-  postData,
-}: {
+type Props = {
   postData: {
     title: string;
     created_at: string;
     updated_at: string;
     tag: string;
-    thumbnail: string;
+    emoji: string;
     contentHtml: string;
   };
-}) {
+};
+
+const Post: React.FC<Props> = ({ postData }) => {
   return (
     <Layout>
       <Head>
         <title>{postData.title}</title>
         <meta name="og:title" content={postData.title} />
-        <meta property="og:image" content={postData.thumbnail} />
       </Head>
-      <div className={postStyles.center}>
-        <Image
-          src={postData.thumbnail}
-          height={300}
-          width={600}
-          alt="thumbnail"
-        />
-      </div>
-      <article>
-        <h1 className={postStyles.center}>{postData.title}</h1>
-        <small className={postStyles.center}>
+      <PostWhiteCard>
+        <p className={styles.emoji}>{postData.emoji}</p>
+        <p className={styles.title}>{postData.title}</p>
+        <p className={styles.date}>
           投稿日:{postData.created_at} 更新日:{postData.updated_at}
-        </small>
-        <div
-          className={postStyles.article}
-          dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
-        />
-      </article>
+        </p>
+        <article>
+          <div
+            className={styles.article}
+            dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+          />
+        </article>
+      </PostWhiteCard>
     </Layout>
   );
-}
+};
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const postData = await getPostData(params.id as string);
@@ -62,3 +57,5 @@ export const getStaticPaths: GetStaticPaths = async () => {
     fallback: false,
   };
 };
+
+export default Post;

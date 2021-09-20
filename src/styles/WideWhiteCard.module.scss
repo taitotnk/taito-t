@@ -7,6 +7,9 @@
     border-radius: 30px;
     margin: 30px 18%;
     box-shadow: 10px 10px rgba(107, 107, 110, 0.7);
+    &:hover{
+        background-color: $sub-color;
+    }
 }
 
 .title {

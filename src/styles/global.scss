@@ -18,15 +18,15 @@ h3 {
 }
 
 /* PCのときだけ中央揃え */
-@media (min-width: 1000px){
-article {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 25% 0 25%;
-    font-size: larger;
-}
-}
+// @media (min-width: 1000px){
+// article {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     margin: 0 25% 0 25%;
+//     font-size: larger;
+// }
+// }
 
 /* コードの文字フォント */
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');

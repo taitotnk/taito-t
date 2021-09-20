@@ -1,6 +1,8 @@
 import Layout from "../components/templates/layout";
 import Head from "next/head";
 import { siteTitle } from "../components/templates/layout";
+import WhiteCard from "../components/atoms/WhiteCard";
+import styles from "../styles/contact.module.scss";
 
 export default function Contact() {
   return (
@@ -10,6 +12,9 @@ export default function Contact() {
         <meta name="og:title" content={siteTitle} />
         <meta property="og:image" content="/images/taitologo.jpg" />
       </Head>
+      <WhiteCard>
+        <h1 className={styles.mente}>メンテナンス中です🙇‍♂️</h1>
+      </WhiteCard>
     </Layout>
   );
 }

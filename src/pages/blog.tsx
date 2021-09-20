@@ -7,7 +7,7 @@ import Image from "next/image";
 import { siteTitle } from "../components/templates/layout";
 import { NextPage } from "next";
 import styles from "../styles/blog.module.scss";
-import ThinWhiteCard from "../components/atoms/ThinWhiteCard";
+import WideWhiteCard from "../components/atoms/WideWhiteCard";
 
 type Props = {
   allPostsData: {
@@ -36,16 +36,20 @@ const Blog: NextPage<Props> = ({ allPostsData }) => {
         />
       </Head>
       {allPostsData.map(({ id, title, created_at, emoji, tag }) => (
-        <ThinWhiteCard>
-          <div className={styles.top_flex} id={id}>
-            <p className={styles.emoji}>{emoji}</p>
-            <p className={styles.title}>{title}</p>
-          </div>
-          <div className={styles.under_flex}>
-            <p className={styles.tag}>#{tag}</p>
-            <p className={styles.date}>⏳{created_at}</p>
-          </div>
-        </ThinWhiteCard>
+        <WideWhiteCard>
+          <Link href={`/posts/${id}`} key={id}>
+            <a>
+              <div className={styles.top_flex}>
+                <p className={styles.emoji}>{emoji}</p>
+                <p className={styles.title}>{title}</p>
+              </div>
+              <div className={styles.under_flex}>
+                <p className={styles.tag}>#{tag}</p>
+                <p className={styles.date}>⏳{created_at}</p>
+              </div>
+            </a>
+          </Link>
+        </WideWhiteCard>
       ))}
     </Layout>
   );
