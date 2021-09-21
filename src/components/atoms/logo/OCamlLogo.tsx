@@ -1,4 +1,4 @@
-import Logo from "../../../../public/logo/OCamlLogo.svg";
+import Logo from "../../../../public/logo/OCamlIcon1.svg";
 
 const OCamlLogo: React.VFC = () => {
   return <Logo />;
