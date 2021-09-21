@@ -36,8 +36,8 @@ const Blog: NextPage<Props> = ({ allPostsData }) => {
         />
       </Head>
       {allPostsData.map(({ id, title, created_at, emoji, tag }) => (
-        <WideWhiteCard>
-          <Link href={`/posts/${id}`} key={id}>
+        <WideWhiteCard key={id}>
+          <Link href={`/posts/${id}`}>
             <a>
               <div className={styles.top_flex}>
                 <p className={styles.emoji}>{emoji}</p>
