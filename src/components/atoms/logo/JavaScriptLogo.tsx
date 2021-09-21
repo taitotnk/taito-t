@@ -1,4 +1,4 @@
-import Logo from "../../../../public/logo/JavaScriptIcon1.svg";
+import Logo from "../../../../public/logo/JavaScriptIcon.svg";
 
 const JavaScriptLogo: React.VFC = () => {
   return <Logo />;
