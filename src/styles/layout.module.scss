@@ -1,46 +1,7 @@
-$main-color: #4717f6;
+@import "../styles/constance.scss";
 
-.profile_image {
-    border-radius: 9999px;
-}
-
-.header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.policy {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.rights {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* PC用 */
-@media (min-width: 1000px)
-{
-  .home_link {
-    margin: 1em;
-    color: $main-color;
-  }
-
-  .header_cont {
-    display: flex;
-  }
-}
-
-/* タブレット用 */
-@media (max-width: 671px)
-{
-}
-
-.footer {
-  margin-top: 80px;
-}
+// @media (max-width: $tablet) {
+//   .wrapper {
+//     overflow: hidden;
+//   }
+// }
