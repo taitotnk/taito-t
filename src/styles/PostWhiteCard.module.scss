@@ -5,7 +5,7 @@
     border: 10px solid;
     border-color: $accent-color;
     border-radius: 30px;
-    margin: 30px 5%;
+    margin: 30px 15%;
     box-shadow: 10px 10px rgba(107, 107, 110, 0.7);
 }
 
@@ -22,7 +22,7 @@
 
 @media (max-width: $tablet) {
     .wrapper {
-        margin: 25px 5%;
+        margin: 25px 5px;
     }
     .title {
         font-size: $h5;
