@@ -14,11 +14,9 @@ h3 {
   }
 
 :root {
-    width: 100%;
     background-color: $main-color;
-    // overflow: hidden;
+    overflow: hidden;
 }
-
 
 /* コードの文字フォント */
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
