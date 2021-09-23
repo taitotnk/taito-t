@@ -3,7 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import remark from "remark";
 import html from "remark-html";
-import hljs from "remark-highlight.js";
+import highlight from "remark-highlight.js";
 import slug from "remark-slug";
 import toc from "remark-toc";
 
@@ -62,7 +62,7 @@ export async function getPostData(id: string) {
   const postContent = await remark()
     .use(slug)
     .use(toc, { heading: "目次", maxDepth: 2 })
-    .use(hljs)
+    .use(highlight)
     .use(html)
     .process(metadata.content);
   const contentHtml = postContent.toString();

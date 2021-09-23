@@ -1,10 +1,11 @@
 import "../styles/global.scss";
 import { AppProps } from "next/app";
-import "highlight.js/styles/tomorrow-night.css";
+// import "highlight.js/styles/tomorrow-night.css";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import React from "react";
 import * as gtag from "../lib/gtag";
+import "highlight.js/styles/rainbow.css";
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   const router = useRouter();
