@@ -1,25 +1,17 @@
 @import "./constance.scss";
 
 a {
-    color:black; 
     text-decoration: none;
 }
-  
-a:hover {
-    color: red;
-}
-
-h3 {
-    color: #ffffff;
-  }
 
 :root {
     background-color: $main-color;
 }
 
-body {
-    overflow-x: hidden;
-}
+// .wrapper{
+//     overflow-x: hidden;
+//     max-width: 100%;
+// }
 
 /* コードの文字フォント */
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');

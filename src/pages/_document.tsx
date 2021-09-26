@@ -1,14 +1,15 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
-import { GA_TRACKING_ID } from '../lib/gtag'
+import Document, { Html, Head, Main, NextScript } from "next/document";
+import { GA_TRACKING_ID } from "../lib/gtag";
+import styles from "../styles/document.module.scss";
 
-type Props = {}
+type Props = {};
 
 class MyDocument extends Document<Props> {
   render() {
     return (
       <Html lang="ja">
         <Head>
-        <script
+          <script
             async={true}
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
           />
@@ -26,12 +27,14 @@ class MyDocument extends Document<Props> {
           />
         </Head>
         <body>
-          <Main />
-          <NextScript />
+          <div className="wrapper">
+            <Main />
+            <NextScript />
+          </div>
         </body>
       </Html>
-    )
+    );
   }
 }
 
-export default MyDocument
+export default MyDocument;
