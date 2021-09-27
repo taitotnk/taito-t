@@ -8,10 +8,10 @@ a {
     background-color: $main-color;
 }
 
-// .wrapper{
-//     overflow-x: hidden;
-//     max-width: 100%;
-// }
+body {
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
 
 /* コードの文字フォント */
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
