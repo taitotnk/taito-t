@@ -9,12 +9,14 @@ a {
 }
 
 html {
-    overflow-x: hidden;
-    overflow-y: scroll;
+    
 }
 
 body {
-    width: 100%
+    width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 /* コードの文字フォント */
