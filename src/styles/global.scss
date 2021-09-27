@@ -8,20 +8,11 @@ a {
     background-color: $main-color;
 }
 
-html {
-    
-}
-
 body {
     width: 100%;
     margin: 0px;
     overflow-x: hidden;
     overflow-y: scroll;
+    font-family: 'Merriweather Sans', sans-serif;
 }
-
-/* コードの文字フォント */
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
-code{
-    font-family: 'Rubik', sans-serif;
-  }
 
