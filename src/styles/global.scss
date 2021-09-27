@@ -8,9 +8,12 @@ a {
     background-color: $main-color;
 }
 
-body {
+html {
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: scroll;
+}
+
+body {
     width: 100%
 }
 
