@@ -1,5 +1,5 @@
 import Link from "next/link"
-import style from "../styles/pager.module.css"
+import style from "../styles/pager.module.scss"
 
 type props = {
   page: number;

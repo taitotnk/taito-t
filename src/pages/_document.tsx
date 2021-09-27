@@ -27,10 +27,8 @@ class MyDocument extends Document<Props> {
           />
         </Head>
         <body>
-          <div className="wrapper">
-            <Main />
-            <NextScript />
-          </div>
+          <Main />
+          <NextScript />
         </body>
       </Html>
     );
