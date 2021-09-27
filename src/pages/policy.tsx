@@ -1,13 +1,14 @@
 import Layout from "../components/templates/layout";
 import Head from "next/head";
+import PostWhiteCard from "../components/atoms/PostWhiteCard";
 
 export default function Policy() {
   return (
     <Layout>
       <Head>
-        <title>プライバシーポリシー</title>
+        <title>Policy | taito-t.com</title>
       </Head>
-      <div>
+      <PostWhiteCard>
         <p>
           Taito（以下，「運営者」といいます。）は，本ウェブサイト上で提供するサービス（以下,「本サービス」といいます。）における，
           ユーザーの個人情報の取扱いについて，以下のとおりプライバシーポリシー（以下，「本ポリシー」といいます。）を定めます。
@@ -114,7 +115,7 @@ export default function Policy() {
           本サイト利用者は、Googleアカウントの広告設定ページで、パーソナライズ広告を無効にできます。また
           aboutads.info
           のページにアクセスして頂き、パーソナライズ広告掲載に使用される第三者配信事業者のCookieを無効にすることができます。
-          その他、Googleの広告におけるCookieの取り扱い詳細については、Googleのポリシーと規約ページ（https://policies.google.com/technologies/ads）を参照してください。
+          その他、Googleの広告におけるCookieの取り扱い詳細については、Googleのポリシーと規約ページを参照してください。
         </p>
 
         <p>
@@ -128,7 +129,7 @@ export default function Policy() {
         </p>
 
         <b>2021年2月2日 制定</b>
-      </div>
+      </PostWhiteCard>
     </Layout>
   );
 }
