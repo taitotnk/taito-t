@@ -25,6 +25,10 @@ class MyDocument extends Document<Props> {
               `,
             }}
           />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@500&display=swap"
+            rel="stylesheet"
+          />
         </Head>
         <body>
           <Main />

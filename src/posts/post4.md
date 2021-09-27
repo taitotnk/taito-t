@@ -432,7 +432,8 @@ else:
 もし、形態素解析した単語の要素数が空だったらエラー処理にします。  
 また、Web APIサーバーがの障害による問題っも発生する可能性を考慮して、リクエストしてレスポンスが返ってくるまでのタイムアウトのエラー処理を実装しています。詳しいタイムアウトの設定は**morpho_analysis**と**search_song**関数で設定してあります。  
 
-**Lineuser.objects.get_or_create(user_id=user_id)**  
+**Lineuser.objects.get_or_create**
+**(user_id=user_id)**
 ここではuser_idが既に登録されていたらuser_idをそのまま取得し、もし未登録の場合は登録をしてから取得します。  
 
 **song_info** のリストには取得した曲情報を追加していきます。  

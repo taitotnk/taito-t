@@ -21,7 +21,7 @@ const Post: React.FC<Props> = ({ postData }) => {
   return (
     <Layout>
       <Head>
-        <title>{postData.title}</title>
+        <title>{postData.title} | taito-t.com</title>
         <meta name="og:title" content={postData.title} />
       </Head>
       <PostWhiteCard>
