@@ -8,7 +8,7 @@ export default function Contact() {
   return (
     <Layout>
       <Head>
-        <title>Contact</title>
+        <title>Contact | taito-t.com</title>
         <meta name="og:title" content={siteTitle} />
         <meta property="og:image" content="/images/taitologo.jpg" />
       </Head>
