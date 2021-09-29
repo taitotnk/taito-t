@@ -12,14 +12,14 @@ yarn dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Directory Structure
-./src
-|-components
-|-data
-|-lib
-|-pages
-|-posts
-|-styles
-|-types
+./src<br>
+|-components<br>
+|-data<br>
+|-lib<br>
+|-pages<br>
+|-posts<br>
+|-styles<br>
+|-types<br>
 
 ### components
 UI components list.
@@ -34,7 +34,7 @@ Methods of API access for posts and GATags.
 Pages of routing by Next.js.
 
 ### styles
-Global CSS, CSS Module by using SASS.
+Global CSS, CSS Module by using Sass.
 
 ### types
 Type definitions.
