@@ -9,7 +9,7 @@ const Footer: React.VFC = () => {
           <a>プライバシーポリシー</a>
         </Link>
       </p>
-      <p className={styles.copyright}>© 2021 Copyright taito-t.com</p>
+      <p className={styles.copyright}>© 2021 Copyright taito-tanaka</p>
     </div>
   );
 };
