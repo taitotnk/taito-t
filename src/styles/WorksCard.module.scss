@@ -9,6 +9,12 @@
     box-shadow: 10px 10px rgba(107, 107, 110, 0.7);
 }
 
+.wrapper:hover {
+    box-shadow: none;
+    transform: translate(5px, 5px);
+    opacity: 0.6;
+}
+
 @media (max-width: $tablet) {
     .wrapper {
         margin: 25px 5%;

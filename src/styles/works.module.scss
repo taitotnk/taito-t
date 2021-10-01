@@ -24,3 +24,9 @@
     font-size: $h5;
     margin: -10px 15% 10px; 
 }
+
+@media (max-width: $tablet) {
+    .appname {
+        font-size: $h4;
+    }
+}

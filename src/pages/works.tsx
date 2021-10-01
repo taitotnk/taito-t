@@ -16,9 +16,9 @@ const Works: NextPage = () => {
       <Layout>
         <div className={styles.container}>
           {worksData.map((data) => (
-            <Link href={data.url}>
-              <a>
-                <WorksCard>
+            <WorksCard>
+              <Link href={data.url}>
+                <a>
                   <div className={styles.img_wrapper}>
                     <Image
                       src={data.img}
@@ -30,9 +30,9 @@ const Works: NextPage = () => {
                   </div>
                   <p className={styles.appname}>{data.appName}</p>
                   <p className={styles.description}>{data.description}</p>
-                </WorksCard>
-              </a>
-            </Link>
+                </a>
+              </Link>
+            </WorksCard>
           ))}
         </div>
       </Layout>
