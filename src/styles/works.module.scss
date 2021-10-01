@@ -1,3 +1,32 @@
-.mente {
+@import "./constance.scss";
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.img_wrapper{
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+.appname {
     text-align: center;
+    color: $text-color;
+    font-weight: $font-thick;
+    font-size: $h3;
+}
+
+.description {
+    color: $text-color;
+    font-size: $h5;
+    margin: -10px 15% 10px; 
+}
+
+@media (max-width: $tablet) {
+    .appname {
+        font-size: $h4;
+    }
 }

@@ -1,0 +1,21 @@
+@import "./constance.scss";
+
+.wrapper {
+    background-color: $accent-color;
+    border: 10px solid;
+    border-color: $accent-color;
+    border-radius: 30px;
+    margin: 30px 50px;
+    box-shadow: 10px 10px rgba(107, 107, 110, 0.7);
+}
+
+.wrapper:hover {
+    box-shadow: none;
+    transform: translate(5px, 5px);
+}
+
+@media (max-width: $tablet) {
+    .wrapper {
+        margin: 25px 5%;
+    }
+}
