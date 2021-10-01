@@ -16,7 +16,7 @@ const Works: NextPage = () => {
       <Layout>
         <div className={styles.container}>
           {worksData.map((data) => (
-            <WorksCard>
+            <WorksCard key={data.appName}>
               <Link href={data.url}>
                 <a>
                   <div className={styles.img_wrapper}>
