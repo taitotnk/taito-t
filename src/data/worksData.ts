@@ -10,7 +10,7 @@ export const worksData: WorksType[] = [
     appName: "Morphomusic",
     img: "/images/morphomusic_logo.jpg",
     description:
-      "LINE上のメッセージを形態素解析して曲を返してくれるBotサービスです! Djangoを使ってバックエンドを担当しました。",
+      "LINE上のメッセージを形態素解析して曲を返してくれるBotサービスです!",
     url: "https://morphomusic.netlify.app/",
   },
 

@@ -5,6 +5,7 @@ import styles from "../styles/works.module.scss";
 import Head from "next/head";
 import { worksData } from "../data/worksData";
 import Image from "next/image";
+import Link from "next/link";
 
 const Works: NextPage = () => {
   return (
@@ -13,14 +14,27 @@ const Works: NextPage = () => {
         <title>Works | taito-t.com</title>
       </Head>
       <Layout>
-        {worksData.map((data) => (
-          <WorksCard>
-            <Image src={data.img} alt="app_img" width={400} height={200} />
-            <p>{data.appName}</p>
-            <p>{data.description}</p>
-            <p>{data.url}</p>
-          </WorksCard>
-        ))}
+        <div className={styles.container}>
+          {worksData.map((data) => (
+            <Link href={data.url}>
+              <a>
+                <WorksCard>
+                  <div className={styles.img_wrapper}>
+                    <Image
+                      src={data.img}
+                      alt="app_img"
+                      width={400}
+                      height={250}
+                      layout="responsive"
+                    />
+                  </div>
+                  <p className={styles.appname}>{data.appName}</p>
+                  <p className={styles.description}>{data.description}</p>
+                </WorksCard>
+              </a>
+            </Link>
+          ))}
+        </div>
       </Layout>
     </>
   );
