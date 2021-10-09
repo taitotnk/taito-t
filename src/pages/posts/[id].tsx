@@ -42,6 +42,11 @@ const Post: React.FC<Props> = ({ postData }) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+  if (!params) {
+    return {
+      props: {},
+    };
+  }
   const postData = await getPostData(params.id as string);
   return {
     props: {
