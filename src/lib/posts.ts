@@ -3,9 +3,11 @@ import path from "path";
 import matter from "gray-matter";
 import remark from "remark";
 import html from "remark-html";
-import highlight from "remark-highlight.js";
-import slug from "remark-slug";
+// import highlight from "remark-highlight.js";
+// import slug from "remark-slug";
 import toc from "remark-toc";
+const highlight = require("remark-highlight.js");
+const slug = require("remark-slug");
 
 const postsDirectory = path.join(process.cwd(), "src/posts");
 
