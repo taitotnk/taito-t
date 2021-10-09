@@ -2,7 +2,7 @@ export type WorksType = {
   appName: string;
   img: string;
   description: string;
-  url?: string;
+  url: string;
 };
 
 export const worksData: WorksType[] = [
