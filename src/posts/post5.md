@@ -29,7 +29,7 @@ tag: 'Next.js'
 [next/imageのドキュメント](https://nextjs.org/docs/api-reference/next/image#:~:text=When%20using%20an%20external%20URL%2C%20you%20must%20add%20it%20to%20domains%20in%20next.config.js.)
 
 ```js
-// next.config.js\
+// next.config.js
 
 module.exports = {
     images: {
