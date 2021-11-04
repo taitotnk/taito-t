@@ -36,3 +36,12 @@
         margin-right: 10%;
     }
 }
+
+@media (max-width: $mobile) {
+    .date {
+        margin-left: 2%;
+    }
+    .title {
+        margin-right: 2%;
+    }
+}
