@@ -4,8 +4,10 @@ import { siteTitle } from "../components/templates/layout";
 import { NextPage } from "next";
 import WhiteCard from "../components/atoms/WhiteCard";
 import profileData from "../data/profileData";
+import { careerData } from "../data/careerData";
 import Profile from "../components/organisms/Profile";
 import SkillList from "../components/organisms/SkillList";
+import CareerList from "../components/organisms/CareerList";
 
 const Home: NextPage = () => {
   return (
@@ -40,6 +42,9 @@ const Home: NextPage = () => {
           Next={true}
           Django={true}
         />
+      </WhiteCard>
+      <WhiteCard title={"Career"}>
+        <CareerList></CareerList>
       </WhiteCard>
     </Layout>
   );
