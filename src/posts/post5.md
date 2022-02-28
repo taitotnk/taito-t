@@ -1,7 +1,7 @@
 ---
 title: '【備忘録】next/imageのsrcで外部URLを使用する場合'
-created_at: '2020-11-01'
-updated_at: '2020-11-01'
+created_at: '2021-11-01'
+updated_at: '2021-11-01'
 emoji: '📝'
 tag: 'Next.js'
 ---
