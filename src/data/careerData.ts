@@ -17,7 +17,7 @@ export const careerData: careerType[] = [
     title: "SoftBank BBWC",
   },
   {
-    date: "2021/10 ~ 現在",
-    title: "NIKKEI Inc.",
+    date: "2023/4 ~",
+    title: "XXXXXX メディア系",
   },
 ];
