@@ -33,7 +33,7 @@ export const worksData: WorksType[] = [
     appName: "taito-blog",
     img: "/images/taito-blog.jpg",
     description:
-      "前ポートフォリオ&技術ブログサイトです。Djangoを使用しました。※現在は使用していません。",
+      "前ポートフォリオ&技術ブログサイトです。Djangoを使用しました。※現在は停止済み。",
     url: "https://taito-blog.herokuapp.com/",
   },
 
