@@ -1,5 +1,5 @@
 ---
-title: 'React18にアップグレードする際に気づいたメモ'
+title: 'React18ではReactDOM.renderは廃止になる'
 created_at: '2022-4-20'
 updated_at: '2022-4-20'
 emoji: '📝'
@@ -25,4 +25,4 @@ const root = createRoot(container); // createRoot(container!) if you use TypeScr
 root.render(<App tab="home" />);
 ```
 
-こうすることでwarningが消える.
+Fixすることでwarningが消える.
