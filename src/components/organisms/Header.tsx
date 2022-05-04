@@ -4,26 +4,26 @@ import Link from "next/link";
 const Header: React.VFC = () => {
   return (
     <div className={styles.container}>
-      <p className={styles.header_home}>
-        <Link href="/">
+      <Link href="/">
+        <p className={styles.header_home}>
           <a>taito-tanaka</a>
-        </Link>
-      </p>
-      <p className={styles.header_right}>
-        <Link href="/contact">
+        </p>
+      </Link>
+      <Link href="/contact">
+        <p className={styles.header_right}>
           <a>Contact</a>
-        </Link>
-      </p>
-      <p className={styles.header_right}>
-        <Link href="/works">
+        </p>
+      </Link>
+      <Link href="/works">
+        <p className={styles.header_right}>
           <a>Works</a>
-        </Link>
-      </p>
-      <p className={styles.header_right}>
-        <Link href="/blog">
+        </p>
+      </Link>
+      <Link href="/blog">
+        <p className={styles.header_right}>
           <a>Blog</a>
-        </Link>
-      </p>
+        </p>
+      </Link>
     </div>
   );
 };
