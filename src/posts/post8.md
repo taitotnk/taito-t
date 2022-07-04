@@ -1,7 +1,7 @@
 ---
 title: 'Firefoxではbackdrop-filterはサポートされていない'
-created_at: '2022-07-03'
-updated_at: '2022-07-03'
+created_at: '2022-7-03'
+updated_at: '2022-7-03'
 emoji: '🎨'
 tag: 'CSS'
 ---
