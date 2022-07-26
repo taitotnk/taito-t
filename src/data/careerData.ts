@@ -18,6 +18,6 @@ export const careerData: careerType[] = [
   },
   {
     date: "2023/4 ~",
-    title: "某メディア 企業",
+    title: "🈲🈲🈲🈲🈲🈲🈲",
   },
 ];
