@@ -2,7 +2,7 @@ import ContactCard from "../src/components/atoms/ContactCard";
 import { shallow } from "enzyme";
 
 describe("ContactCard", () => {
-  it("必要なPropsが入っているか", () => {
+  it("contain ContactCard component props", () => {
     const wrapper = shallow(
       <ContactCard
         account="GitHub"
